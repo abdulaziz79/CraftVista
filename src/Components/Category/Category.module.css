@@ -1,0 +1,70 @@
+.container{
+    overflow-x: auto;
+}
+.wrapper{
+    display: grid;
+    grid-auto-flow: column;
+    gap: var(--size-3);
+    grid-auto-columns: 10.5%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding: 10px;
+    font-size: 15px;
+    justify-content: space-between;
+    scrollbar-width: thin;
+    scrollbar-color: black black;
+}
+.wrapper::-webkit-scrollbar {
+    width: 4px; /* Adjust the width as needed */
+  }
+  
+  .wrapper::-webkit-scrollbar-thumb {
+    background-color: transparent ;
+  }
+  
+  .h3{
+    text-align: center;
+    color: lightgray;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+  .categ{
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 600px) {
+    .wrapper {
+      grid-auto-columns: 20%;
+      
+    }
+  }
+  @media screen and (max-width: 900px) {
+    .wrapper {
+      grid-auto-columns: 20%;
+    }
+  }
+  @media screen and (max-width: 1280px) {
+    .wrapper {
+      grid-auto-columns: 17%;
+    }
+  }
+  @media screen and (max-width: 750px) {
+    .wrapper {
+      grid-auto-columns: 25%;
+    }
+  }
+  @media screen and (max-width: 470px) {
+    .wrapper {
+      grid-auto-columns: 40%;
+    }
+  }

@@ -1,0 +1,10 @@
+.container{
+    height: 100vh;
+    
+}
+.hero{
+    width: 100%;
+    margin: auto;
+    background:linear-gradient(180deg, #0c0c0f, #16161a);
+    /* background-color:#0c0c0f ; */
+}

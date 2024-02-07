@@ -1,0 +1,82 @@
+/* Login.module.css */
+.body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-image: url("../../assets/images/background.jpg") ;
+    background-size: cover;
+    background-position: center;
+}
+.container {
+  width: 600px;
+  height: 35rem;
+  padding: 20px;
+  /* border: 1px solid #ffffff; */
+  border-radius: 5px;
+  background-color: transparent; /* Use rgba for transparency */
+  backdrop-filter: blur(12px); /* Apply a blur effect */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: lightgray; /* Optional: Set text color to white for better readability */
+}
+  
+  .h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    font-weight: 400;
+  }
+
+  
+  .inpt {
+    width: 100%;
+    padding: 10px;
+    color: lightgray;
+    margin-bottom: 15px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: transparent;
+    height: 2.8rem;
+    
+  }
+  
+  .btn {
+    background-color: rgb(15, 13, 13);
+    color: lightgray;
+    padding: 10px 15px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 17px;
+    margin-top: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  .googleBtn{
+    background-color: #C62507;
+    color: lightgray;
+    padding: 10px 15px;
+    /* border: 1px solid rgb(255, 255, 255); */
+    border: 1px solid #C62507;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 17px;
+    margin-top: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  
+  .btn:hover {
+    background-color: transparent;
+    color: black;
+    border: 1px solid rgb(7, 6, 6);
+  }
+  .googleBtn:hover{
+    background-color: transparent;
+    color: rgb(181, 41, 41);
+    border: 1px solid rgb(146, 51, 51);
+
+  }
