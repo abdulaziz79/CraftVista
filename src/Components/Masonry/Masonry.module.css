@@ -5,7 +5,8 @@
     border-radius: 10px;
 }
 .cart{
-    border-radius: 100px;
+  position: relative;
+    /* border-radius: 100px; */
 }
 .img{
     /* border-radius: 10px; */
@@ -13,9 +14,8 @@
     cursor: pointer;
     object-fit: contain;
     width: 100%;
-}
-
-  
+    border-top-left-radius: 80px;  
+  }
   .itemContainer {
     position: relative; 
   }
@@ -28,13 +28,24 @@
     width: 80%;
     left: 2.4rem;
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 2rem;
+    flex-direction: column;
     border-radius: 44px;
+    line-height: 20px;
     height: 4rem;
+    box-shadow:  0 0 20px rgba(26, 25, 77, 0.2);
   }
   .name{
     position: absolute;
     bottom: 0;
     background-color: white;  
+  }
+  .namee{
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
   }
   .prof{
     position: absolute;
@@ -79,6 +90,7 @@
     letter-spacing: 3px;
     align-items: center;
     height: 100%;
+    border-top-left-radius: 80px;  
     background-color: rgba(168, 21, 21, 0.7);
     color: lightgray;
     padding: 5px;
@@ -90,4 +102,5 @@
   .itemContainer:hover .name {
     opacity: 1; /* Show the name on hover */
   }
+  
   

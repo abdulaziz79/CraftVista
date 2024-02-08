@@ -24,12 +24,12 @@ const Data=[
     image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ61yrH-uBgiaXUvYiH8A2tMofDJrhHtdBJQ&usqp=CAU'
   },
   {
-    id:1,
+    id:4,
     name:"abdallah",
     image:'https://img.freepik.com/free-photo/smiling-young-female-construction-worker-wearing-safety-helmet-safety-vest-hugging-notepad_409827-150.jpg'
   },
   {
-    id:4,
+    id:5,
     name:"abdallah",
     image:'https://img.freepik.com/free-photo/smiling-young-female-construction-worker-wearing-safety-helmet-safety-vest-hugging-notepad_409827-150.jpg'
   },
@@ -39,17 +39,17 @@ const Data=[
     name:"abdallah",
     image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ61yrH-uBgiaXUvYiH8A2tMofDJrhHtdBJQ&usqp=CAU'
   },  {
-    id:6,
+    id:7,
     name:"abdallah",
     image:'https://img.freepik.com/free-photo/smiling-young-female-construction-worker-wearing-safety-helmet-safety-vest-hugging-notepad_409827-150.jpg'
   },
   {
-    id:1,
+    id:8,
     name:"abdallah",
     image:'https://img.freepik.com/free-photo/smiling-young-female-construction-worker-wearing-safety-helmet-safety-vest-hugging-notepad_409827-150.jpg'
   },
   {
-    id:6,
+    id:9,
     name:"abdallah",
     image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ61yrH-uBgiaXUvYiH8A2tMofDJrhHtdBJQ&usqp=CAU'
   },
