@@ -1,9 +1,9 @@
 .container{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     height: 100vh;
-    max-width: 1366px;
+    max-width: 1566px;
     width: 100%;
     flex-wrap: wrap;
     margin: auto;
@@ -12,7 +12,7 @@
 }
 .img{
     height: 100%;
-    /* position:absolute; */
+    position:absolute;
     right: 30px;
     bottom: 0;
     width: 40%;
@@ -20,23 +20,64 @@
     background-size: cover;
     transform: scaleX(-1);
 }
+.imgContainer {
+    height: 100%;
+    width: 60%; /* Adjust width as needed */
+    position: relative;
+    overflow: hidden; /* Ensure that images are clipped within the container */
+}
 .p{
     color: lightgray;
-    font-size: 40px;
-    font-weight: 600;
-    letter-spacing: 3px;
+    margin-top: 10rem;
+    font-size: 110px;
+    font-weight: 300;
+    /* letter-spacing: 3px; */
+    line-height: 110px;
+}
+.text{
+    color: lightgray;
+    /* margin-top: 7rem; */
+    font-size: 110px;
+    font-weight: 300;
+    /* letter-spacing: 3px; */
 }
 .button{
     padding: 10px;
     margin-right: 1rem;
     color: white;
     width: 10rem;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     font-size: 12px;
     cursor: pointer;
-    /* font-weight: 300; */
+    font-weight: 500;
+    margin-top: 1rem;
+    letter-spacing: 2px;
+    /* cursor: pointer; */
+    z-index: 8;
+    border: 1px solid lightgray;
+    background-color: transparent;
+}
+.button2{
+    padding: 10px;
+    margin-right: 1rem;
+    color: black;
+    width: 10rem;
+    /* border-radius: 5px; */
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 500;
     margin-top: 1rem;
     letter-spacing: 2px;
     border: 1px solid lightgray;
-    background-color: transparent;
+    background-color: lightgray;
+}
+.slidingText{
+    position: absolute;
+    font-size: 32vh;
+    bottom: -38px;
+    height: 25rem;
+    white-space: nowrap;
+    width: 50%;
+    color: #ffffff09;
+    
 }

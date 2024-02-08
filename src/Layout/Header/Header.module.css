@@ -1,5 +1,6 @@
 .navbar{
      height: 100px;
+     /* width: 1366px; */
 
     background-color: transparent;
     /* display: flex; */
@@ -8,10 +9,10 @@
     top: 0;
     z-index: 2;
     width: 100%;
-    color: lightgray;
+    color: rgb(211, 211, 211);
 }
 .wrapper{
-    max-width: 1366px;
+    max-width: 1566px;
     margin: auto;
     display: flex;
     align-items: center;
@@ -26,5 +27,5 @@
     font-size: 30px;
     font-weight: 700;
     letter-spacing: 2px;
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid orange;
 }

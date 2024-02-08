@@ -17,6 +17,11 @@ const Masonryy = ({ data }) => {
       {data.map((item) => (
         <div className={Styles.cart} key={item.id}>
           <div className={Styles.itemContainer}>
+          <p className={Styles.p}>category</p>
+          <div className={Styles.profile}>
+            <img src={item.image} className={Styles.prof} />
+
+          </div>
             <img src={item.image} className={Styles.img} alt={item.name} />
             <p className={Styles.name}>{item.name}</p>
           </div>

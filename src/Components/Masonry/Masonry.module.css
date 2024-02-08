@@ -8,7 +8,7 @@
     border-radius: 100px;
 }
 .img{
-    border-radius: 10px;
+    /* border-radius: 10px; */
     margin-bottom: 0.5rem;
     cursor: pointer;
     object-fit: contain;
@@ -17,10 +17,52 @@
 
   
   .itemContainer {
-    position: relative; /* Required for absolute positioning of the name */
+    position: relative; 
+  }
+  .profile{
+    position: absolute;
+    background-color: transparent;
+    /* border: 1px solid red; */
+    backdrop-filter: blur(12px);
+    bottom: 5px;
+    width: 80%;
+    left: 2.4rem;
+    display: flex;
+    border-radius: 44px;
+    height: 4rem;
+  }
+  .name{
+    position: absolute;
+    bottom: 0;
+    background-color: white;  
+  }
+  .prof{
+    position: absolute;
+    border-radius: 50%;
+    object-fit: cover;
+    bottom: 0;
+    width: 65px;
+    height: 100%;
+
   }
   
-
+.p{
+  position: absolute;
+  right: 0;
+  top:20px;
+  background-color: orange;
+  width: 10rem;
+  padding: 0.5rem;
+  padding-left: 1.4rem;
+  border-bottom-left-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+ /* background-color: rgba(25, 25, 63, 0.8);  */
+  color: rgb(255, 255, 255);
+  /* backdrop-filter: blur(22px); */
+  box-shadow: 0 0 10px rgba(26, 25, 77, 0.2);
+  letter-spacing: 2px;
+}
   
   .name {
     position: absolute;
@@ -28,7 +70,7 @@
     left:0;
     width: 100%;
     display: flex;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     justify-content: center;
     object-fit: contain;
     cursor: pointer;
