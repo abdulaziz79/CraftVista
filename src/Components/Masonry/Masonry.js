@@ -5,11 +5,11 @@ import { useState, useEffect } from 'react';
 
 const breakPointObj = {
   default: 4,
-  3000: 6,
-  2000: 5,
-  1200: 3,
-  1000: 2,
-  500: 1
+  3000: 4,
+  2000: 3,
+  1590: 2,
+  1200: 1,
+  // 770: 1
 }
 
 const Masonryy = ({ data }) => {
@@ -22,12 +22,13 @@ const Masonryy = ({ data }) => {
           <p className={Styles.p}>category</p>
           <div className={Styles.profile}>
             {/* <img src={item.image} className={Styles.prof} /> */}
-            <h1 className={Styles.namee}>Abdulaziz cherkawi</h1>
-            <p>6 years of experience</p>
+            {/* <h1 className={Styles.namee}>Abdulaziz cherkawi</h1> */}
+            {/* <p className={Styles.experience}>6 years of experience</p> */}
 
           </div>
             <img src={item.image} className={Styles.img} alt={item.name} />
-            <p className={Styles.name}>{item.name}</p>
+            <p className={Styles.name}>abdulaziz</p>
+            <p className={Styles.years}>6 years of experience</p>
           </div>
         </div>
       ))}

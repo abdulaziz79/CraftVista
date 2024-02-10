@@ -20,10 +20,11 @@ const Router = () => {
             <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/workers" element={<Workers />} />
+                
 
 
             </Route>
+            <Route path="/workers" element={<Workers />} />
             <Route path='/login' element={<Login />} />
             <Route element={
             <ProtectedRoute

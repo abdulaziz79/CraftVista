@@ -6,6 +6,8 @@ import Masonryy from '../../Components/Masonry/Masonry'
 import Spinner from '../../Components/Spinner'
 import { useState } from 'react'
 import Category from '../../Components/Category/Category'
+import Sidebar from '../../Layout/Sidebar/Sidebar'
+import NavWorker from '../../Components/NavWorker/NavWorker'
 
 const Data=[
   {
@@ -16,17 +18,17 @@ const Data=[
   {
     id:2,
     name:"abdallah",
-    image:'https://img.freepik.com/free-photo/smiling-young-female-construction-worker-wearing-safety-helmet-safety-vest-hugging-notepad_409827-150.jpg'
+    image:'https://www.myvisasource.com/hubfs/Compressed%20Blog%20Images/200kb/cheerful-construction-workers-discussing-work-my-visa-source-200kb.jpg'
   },
   {
     id:3,
     name:"abdallah",
-    image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ61yrH-uBgiaXUvYiH8A2tMofDJrhHtdBJQ&usqp=CAU'
+    image:'https://img.freepik.com/free-photo/smiling-young-female-construction-worker-wearing-safety-helmet-safety-vest-hugging-notepad_409827-150.jpg'
   },
   {
     id:4,
     name:"abdallah",
-    image:'https://img.freepik.com/free-photo/smiling-young-female-construction-worker-wearing-safety-helmet-safety-vest-hugging-notepad_409827-150.jpg'
+    image:'https://www.myvisasource.com/hubfs/Compressed%20Blog%20Images/200kb/cheerful-construction-workers-discussing-work-my-visa-source-200kb.jpg'
   },
   {
     id:5,
@@ -63,8 +65,18 @@ const Workers = () => {
   return (
     
     <div className={Styles.container}>
-      <Category />
+      <Sidebar />
+      {/* <Category /> */}
+      <div className={Styles.bottom}>
+      <div className={Styles.left}>whatever</div>
+      <div className={Styles.right}>
+        <div className={Styles.nav}>
+          <NavWorker />
+        </div>
+        
       <Masonryy data={Data} />
+      </div>
+      </div>
     </div>
   )
 }

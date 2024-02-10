@@ -1,10 +1,27 @@
-.container{
-    height: 100vh;
-    
-}
-.hero{
+.container {
+    height: 300vh;
+    /* scroll-snap-type: y mandatory; */
+    scroll-behavior: smooth;
+  }
+  
+  .hero {
     width: 100%;
     margin: auto;
-    background:linear-gradient(180deg, #1a1a43, #111139);
-    /* background-color:#0c0c0f ; */
-}
+    scroll-snap-align: center;
+    height: 100vh;
+
+  }
+  
+  .about {
+    height: 100vh;
+    scroll-snap-align: center;
+    width: 100%;
+    background-color: black;
+  }
+  
+  .categories{
+    scroll-snap-align: center;
+    height: 100vh;
+    background-color: rgb(7, 6, 27);
+
+  }
