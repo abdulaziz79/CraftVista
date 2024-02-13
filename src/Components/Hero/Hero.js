@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import img from "../../assets/images/carpenterrr.png"
 import img2 from "../../assets/images/background.jpg"
 import img3 from "../../assets/images/backgroundd.jpg"
+import { Link } from 'react-router-dom'
+
 
 
 const textVariants ={
@@ -64,7 +66,7 @@ const Hero = () => {
           <motion.p className={Styles.p} variants={textVariants} initial="initial" animate="animate">Discover skilled<br /> <span style={{color:"orange", fontWeight:"700"}}>  professionals </span> </motion.p>
            <motion.p variants={textVariants} className={Styles.text} initial="initial" animate="animate"> <span> near you </span> </motion.p>
              <motion.div className={Styles.btn} variants={textVariants} initial="initial" animate="animate">
-             <motion.button variants={textVariants} className={Styles.button}>Discover Talent</motion.button>
+            <Link to="/workers"> <motion.button variants={textVariants} className={Styles.button}>Discover Talent</motion.button></Link>
             
           </motion.div>
           </div>
@@ -72,7 +74,7 @@ const Hero = () => {
           <div className={Styles.heroBackgrdR} ></div>
             <motion.p className={Styles.pRight} variants={textVariantsRight} initial="initial" animate="animate"> Catch your next<br /> job <span style={{color:"white", fontWeight:"700"}}>  opportunity</span> </motion.p>
             <motion.p variants={textVariantsRight} className={Styles.textRight} initial="initial" animate="animate"> <span> today.</span> </motion.p>
-            <motion.button variants={textVariantsRight} initial="initial" animate="animate" className={Styles.button2}>Browse Jobs</motion.button>
+           <Link to="/jobs" style={{zIndex:"10"}}><motion.button variants={textVariantsRight} initial="initial" animate="animate" className={Styles.button2}>Browse Jobs</motion.button></Link> 
           </motion.div>
         </motion.div>
       </motion.div>

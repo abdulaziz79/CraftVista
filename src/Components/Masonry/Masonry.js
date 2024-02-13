@@ -27,7 +27,7 @@ const Masonryy = ({ data }) => {
 
           </div>
             <img src={item.image} className={Styles.img} alt={item.name} />
-            <p className={Styles.name}>abdulaziz</p>
+            <div className={Styles.name}><p className={Styles.nameee}>abdulaziz cherkawi</p></div>
             <p className={Styles.years}>6 years of experience</p>
           </div>
         </div>

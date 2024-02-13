@@ -111,12 +111,13 @@
 .button2:hover{
     background-color: transparent;
     color: lightgray;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.598)
 }
 .button:hover{
     color: black;
     background-color: orange   ;
 
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 20px orange;
 }
 .slidingText{
     position: absolute;

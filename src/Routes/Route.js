@@ -9,6 +9,7 @@ import Dashboard from '../Pages/Dashboard/Dashboard';
 import Login from '../Pages/Login/Login';
 import About from '../Pages/About/About';
 import Workers from '../Pages/Workers/Workers';
+import Jobs from '../Pages/Jobs/Jobs';
 
 
 const Router = () => {
@@ -20,6 +21,8 @@ const Router = () => {
             <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/jobs" element={<Jobs />} />
+
                 
 
 

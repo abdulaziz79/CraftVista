@@ -1,5 +1,5 @@
 .container {
-    height: 300vh;
+    height: 100%;
     /* scroll-snap-type: y mandatory; */
     scroll-behavior: smooth;
   }
@@ -24,4 +24,9 @@
     height: 100vh;
     background-color: rgb(7, 6, 27);
 
+  }
+  .category{
+    height: 100vh;
+    scroll-snap-align: center;
+    background-color: rgb(7, 6, 27);
   }

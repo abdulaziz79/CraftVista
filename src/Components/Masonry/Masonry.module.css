@@ -73,7 +73,7 @@
   position: absolute;
   right: 0;
   top:20px;
-  background-color: rgba(9, 8, 48, 0.348);
+  background-color: rgba(9, 8, 48, 0.195);
   width: 8rem;
   padding: 0.5rem;
   z-index: 2;
@@ -100,12 +100,12 @@
     cursor: pointer;
     font-size: 30px;
     font-weight: 600;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     align-items: center;
     height: 100%;
     border-radius: 26px;
-    background-color: rgba(17, 13, 64, 0.415);
-    color: lightgray;
+    background-color: rgba(17, 13, 64, 0.334);
+    color: white;
     padding: 5px;
     margin: 0;
     transition: opacity 0.3s;
@@ -127,7 +127,7 @@
     height: 100%;
     border-radius: 26px;
     /* background-color: rgba(17, 13, 64, 0.415); */
-    color: lightgray;
+    color: white;
     padding: 5px;
     margin: 0;
     transition: opacity 0.3s;
@@ -138,4 +138,7 @@
     opacity: 0; 
   }
   
-  
+  .nameee{
+    position: absolute;
+    bottom: 24px;
+  }

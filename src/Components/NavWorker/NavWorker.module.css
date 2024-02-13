@@ -1,14 +1,24 @@
 .container{
     height: 100%;
-    width: 100%;
+    max-width: 100%;
     display: flex;
-    gap: 3rem;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  
+}
+.left{
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
     margin-bottom: 1rem;
     margin-top: 0.6rem;
+    /* max-width: 30rem; */
+    flex-wrap: wrap;
 }
 
 .btn1{
-    width: 9%;
+    width: 5rem;
     height: 3rem;
     background-color: transparent;
     color: rgba(3, 8, 11, 0.609);
@@ -20,7 +30,7 @@
 }
 
 .btn2{
-    width: 15%;
+    width: 14rem;
     height: 3rem;
     background-color: transparent;
     color: rgba(3, 8, 11, 0.609);
@@ -31,7 +41,7 @@
     transition: background-color 0.3s ease-in-out;
 }
 .btn3{
-    width: 9%;
+    width: 5rem;
     height: 3rem;
     background-color: transparent;
     color: rgba(3, 8, 11, 0.609);
@@ -54,9 +64,23 @@
   }
   .btn2:hover {
     /* background-color: rgba(22, 96, 109, 0.8); */
-    scale: 1.2;
+    background-color: rgba(22, 96, 109, 0.8);
     transition: 0.2s;
   }
   .btn3:hover {
     background-color: rgba(22, 96, 109, 0.8);
+  }
+  .searchInput{
+    height: 3rem;
+    margin-bottom: 1rem;
+    /* margin-top: 0.6rem; */
+    border: 1px solid gray;
+    padding: 1rem;
+    border-radius: 20px;
+  }
+  @media screen and (max-width:800px) {
+    .left{
+       display: flex;
+       gap: 0;
+    }
   }

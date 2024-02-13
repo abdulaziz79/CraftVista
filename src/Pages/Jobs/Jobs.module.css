@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: rgb(253, 254, 255);
+}
+
+.top{
+    height: 30rem;
+    background-image: url(/src/assets/images/tools.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 3rem;
+}
+.bottom{
+    flex: 1;
+    width: 50%;
+    height: 100vh;
+    margin: auto;
+}
+.post{
+    margin: auto;
+    padding: 1rem;
+    height: 50rem;
+    max-width: 50rem;
+    background-color: rgb(247, 241, 241);
+    margin-bottom: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(30, 32, 171, 0.358)
+}
+.profileImage{
+    width: 4rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.postImage{
+    height: 70%;
+    width: 100%;
+    object-fit: cover;
+}
+.imgTime{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.time{
+    opacity: 0.6;
+    margin-top: -2px;
+}
+.nametime{
+    display: flex;
+    flex-direction: column;
+    /* gap:-10px; */
+}

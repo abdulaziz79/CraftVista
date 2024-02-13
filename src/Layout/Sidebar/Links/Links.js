@@ -31,6 +31,7 @@ const Links = () => {
     const pages=[
         "HomePage",
         "workers",
+        "Jobs",
         "Services",
         "About",
     ]

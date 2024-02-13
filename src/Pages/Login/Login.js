@@ -70,9 +70,10 @@ const Login = () => {
     <div className={Styles.body}>
     <div className={Styles.container}>
       <h2 className={Styles.h2}>Login</h2>
-      <form onSubmit={handleLogin}>
+      <form className={Styles.form} onSubmit={handleLogin}>
+        {/* <div className={Styles.inputLabel}> */}
         <label>
-          Username:
+          Email:
           <input
           className={Styles.inpt}
             type="email"
@@ -82,6 +83,7 @@ const Login = () => {
             required
           />
         </label>
+        {/* </div> */}
         <br />
         <label>
           Password:
@@ -96,7 +98,7 @@ const Login = () => {
         <br />
         <button type="submit" className={Styles.btn}>Login</button>
         <button type="submit" className={Styles.googleBtn}>Login with google</button>
-        <p style={{ letterSpacing:"1px",color:"white", }}>Already have an account?   <Link  style={{textDecoration:"none", color:"black"}} to="/signuh">sign up</Link></p>
+        <p style={{ letterSpacing:"1px",color:"white", }}>Already have an account?   <Link  style={{textDecoration:"none", color:"lightblue"}} to="/signuh">sign up</Link></p>
       </form>
     </div>
     </div>

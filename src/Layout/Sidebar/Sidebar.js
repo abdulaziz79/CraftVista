@@ -10,7 +10,7 @@ const variants={
         clipPath: "circle(1200px at calc(100% - 50px) 50px)",
         transition:{
             type:"spring",
-            stiffness:20,
+            stiffness:40,
         }
     },
     closed:{
@@ -18,8 +18,8 @@ const variants={
         transition:{
             delay:0.5,
             type:"spring",
-            stiffness:400,
-            damping:40
+            stiffness:700,
+            damping:70
         }
     }
 }

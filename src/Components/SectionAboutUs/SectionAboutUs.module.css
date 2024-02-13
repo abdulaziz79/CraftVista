@@ -55,6 +55,12 @@
     width: 13rem;
     /* border-bottom: 3px solid rgb(36, 21, 122); */
 }
+.btn:hover{
+    background-color: rgba(9, 9, 38, 0.686);
+    color: white;
+    box-shadow: 0 0 20px rgba(16, 51, 92, 0.889)
+
+}
 .number{
      color: transparent;
     -webkit-text-stroke-width: 1.4px;
@@ -77,9 +83,7 @@
     flex-direction: column;
     gap: 0px;
 }
-.bottom{
-    /* position: relative; */
-}
+
 .slidingText{
     position: absolute;
     font-size: 22vh;
@@ -88,5 +92,4 @@
     white-space: nowrap;
     width: 50%;
     color: #1b22601a;
-    
 }
