@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Styles from "../Sidebar.module.css"
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { UserContext } from '../../../UserContext/UserContext'
 
 const variants = {
     open:{
@@ -28,12 +29,14 @@ const itemVariants = {
 }
 
 const Links = () => {
+    const {user } =useContext(UserContext)
     const pages=[
         "HomePage",
         "workers",
         "Jobs",
         "Services",
         "About",
+        `Profile`
     ]
 
   return (

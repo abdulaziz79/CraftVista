@@ -21,8 +21,8 @@ const Footer = () => {
             <div className={style.contact}>
                 <h3 className={style.title}>Support</h3>
                 <ul className={style.links}>
-                    <li>hike@lebanon.com</li>
-                    <li>76147030</li>
+                    <li>craftVista@lebanon.com</li>
+                    <li>79165588</li>
                     <li><Link to="/contact">Contact</Link></li>
                 </ul>
             </div>
@@ -62,7 +62,7 @@ const Footer = () => {
             </div>
         </div>
         <div className={style.copyright}>
-            © 2024 - Global Fairy All Rights Reserved | Powered By: Rayan Ali
+            © 2024 - Craft-Vista All Rights Reserved | Powered By: Abdulaziz cherkawi
         </div>
     </footer>
 )

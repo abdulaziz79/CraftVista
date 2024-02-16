@@ -1,0 +1,111 @@
+.container{
+    height: 100%;
+
+}
+.top{
+    height: 20rem;
+    position: relative;
+    background-image: linear-gradient(to bottom right, #130a2e, aqua);
+}
+.img{
+    position: absolute;
+    height: 10rem;
+    width: 10rem;
+    object-fit: cover;
+    border-radius: 50%;
+    bottom: -14%;
+    left: 14%;
+    border: 3px solid white;
+}
+.bottom{
+    /* height: 120vh; */
+    flex: 1;
+    padding-top: 4rem;
+    width: 74%;
+    /* background-color: #130a2e; */
+    margin: auto;
+    flex-direction: row;
+    display: flex;
+}
+.name{
+    color: rgb(15, 6, 36);
+    font-size: 30px;
+    font-weight: 500;
+}
+.bottomLeft{
+    width: 70%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+.bottomRight{
+    /* background-color: rgb(29, 103, 169); */
+    width: 30%;
+    height: 100vh;
+    display: flex;
+    gap: 2rem;
+}
+.email{
+    opacity: 0.7;
+}
+.info{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    /* background-color: #130a2e; */
+}
+.location{
+    /* background-color: rgb(238, 235, 235); */
+    width: 12rem;
+    min-width: 12rem;
+    /* text-align: center; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 2rem;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 16px;
+    opacity: 0.6;
+}
+.post{
+    /* margin: auto; */
+    padding: 1rem;
+    margin-top: 2rem;
+    max-height: 50rem;
+    /* height: 50rem; */
+    max-width: 56rem;
+    background-color: rgb(247, 241, 241);
+    margin-bottom: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(30, 32, 171, 0.117)
+}
+.postProfile{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 1px solid gray  ;
+    object-fit: cover;
+}
+.postImage{
+    width: 100%;
+    object-fit: cover;
+    height: 40rem;
+    margin-bottom: 1rem;
+}
+.desc{
+    margin-top: 0.7rem;
+    margin-bottom: 0.4rem;
+}
+.nb{
+    width: 12rem;
+    height: 6rem;
+    background-color: rgb(245, 243, 239);
+    padding: 10px;
+    display: flex;
+    border-radius: 14px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Styles from "./Workers.module.css"
 // import tools from '../../assets/images/tools.jpg'
 import PageHero from '../../Components/pageHero/PageHero'
@@ -9,6 +9,7 @@ import { useState } from 'react'
 import Sidebar from '../../Layout/Sidebar/Sidebar'
 import NavWorker from '../../Components/NavWorker/NavWorker'
 import image from "../../assets/images/men.png"
+import axios from 'axios'
 
 const Data=[
   {
@@ -63,7 +64,22 @@ const Data=[
 const Workers = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [loading, setLoading] = useState(false)
+  const [data, setData] = useState("")
 
+  const fetchData =async()=>{
+    try {
+      const respone = await axios.get("http://localhost:5000/user/read/allWorker")
+      if (respone){
+        setData(respone.data)
+        console.log(respone.data)
+      }
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+  useEffect(()=>{
+    fetchData()
+  },[])
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
 };
@@ -111,7 +127,7 @@ const Workers = () => {
           <NavWorker />
         </div>
         
-      <Masonryy data={Data}  />
+      <Masonryy data={data}  />
       </div>
       </div>
     </div>

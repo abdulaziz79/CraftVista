@@ -6,12 +6,18 @@
 }
 
 .top{
-    height: 30rem;
-    background-image: url(/src/assets/images/tools.jpg);
-    background-position: center center;
+    position: relative;
+    height: 16rem;
+    /* background-image: url(/src/assets/images/tools.jpg); */
+    background-image: linear-gradient(to bottom right, #130a2e, aqua);
+    /* background-color: aqua; */
+    background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 .bottom{
     flex: 1;
@@ -22,12 +28,13 @@
 .post{
     margin: auto;
     padding: 1rem;
-    height: 50rem;
-    max-width: 50rem;
+    max-height: 50rem;
+    /* height: 50rem; */
+    max-width: 60rem;
     background-color: rgb(247, 241, 241);
     margin-bottom: 2rem;
     border-radius: 20px;
-    box-shadow: 0 0 20px rgba(30, 32, 171, 0.358)
+    box-shadow: 0 0 20px rgba(30, 32, 171, 0.309)
 }
 .profileImage{
     width: 4rem;
@@ -36,7 +43,7 @@
     border-radius: 50%;
 }
 .postImage{
-    height: 70%;
+    height: 40rem;
     width: 100%;
     object-fit: cover;
 }
@@ -54,4 +61,39 @@
     display: flex;
     flex-direction: column;
     /* gap:-10px; */
+}
+.topBottom{
+    position: absolute;
+    bottom: -1.9rem;
+    width: 60%;
+    height: 4rem;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.btn{
+    background-color: #130a2e;
+    color: lightgray;
+    display: flex;
+    align-items: center;
+    /* justify-content:space-between; */
+    padding-left: 1rem;
+    /* padding-right: 2rem; */
+    width: 14rem;
+    height: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    border-right: 1px solid lightgray;
+}
+.location{
+    background-color: #130a2e;
+    padding-left: 1rem;
+    /* padding-right: 4rem; */
+    cursor: pointer;
+    color: lightgray;
+    font-size: 18px;
+    font-weight: 600;
+    width: 14rem;
+    height: 100%; 
 }
