@@ -142,3 +142,12 @@
     position: absolute;
     bottom: 24px;
   }
+  .rate{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 9%;
+    left: 5%;
+    color: white;
+    z-index: 3;
+  }

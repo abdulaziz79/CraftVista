@@ -1,0 +1,115 @@
+.container{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(15, 6, 40);
+}
+.header{
+    height: 69vh;
+    position: relative;
+    width: 100%;
+}
+.title{
+    font-size: 120px;
+    font-weight: 800;
+    position: fixed;
+    overflow: hidden;
+    top: 22%;
+    background-image: linear-gradient(to right, rgb(96, 53, 216), rgb(19, 10, 45));
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    left: 8%;
+}
+.img{
+    /* position: fixed; */
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    transform: scaleX(-1);
+}
+.svg{
+    position: absolute;
+    color: white;
+    bottom: -2px;
+}
+.bottom{
+    height: 130vh;
+    width: 90%;
+    margin: auto;
+    /* background-color: rgb(15, 6, 40); */
+    background: radial-gradient(circle, rgb(26, 7, 65) 0%, rgb(26, 9, 74) 15%,rgb(15, 6, 40) 25%, rgb(15, 6, 40) 100%);
+
+    position: relative;
+
+}
+.h1{
+   display: flex;justify-content: center;
+   color: lightgray;
+   font-size: 70px;
+   font-weight: 600;
+   line-height: 78px;
+   text-align: center;
+   background-image: linear-gradient(to right, rgb(253, 253, 255), rgb(108, 100, 132));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+.bottomRight{
+    width: 60%;
+    border-radius: 10%;
+    height: 60rem;
+    position: absolute;
+    right: 0%;
+    top: 17%;
+}
+.bottomLeft{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rem;
+
+    gap: 3rem;
+    position: absolute;
+}
+.messages{
+    background-color: rgba(17, 14, 52, 0.443);
+    /* max-width: 30rem; */
+    max-width: 60rem;
+    max-height: 20rem;
+    min-height: 14rem;
+    padding: 10px;
+    border-radius: 30px;
+}
+.aboutImage{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 10%;
+    
+}
+.h2{
+    font-size: 30px;text-align: center;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: lightgray;
+}
+.p{
+    color: lightgray;
+    font-size: 18px;
+}
+.heroBackgrd {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(12, 31, 65, 0.451); 
+}
+.aboutBackgrd{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(12, 31, 65, 0.25); 
+    border-radius: 10%;
+}

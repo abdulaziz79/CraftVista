@@ -2,7 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import { ToastContainer } from 'react-toastify';
 import Router from './Routes/Route';
+import axios from 'axios';
 
+axios.defaults.withCredentials = true
 function App() {
   return (
     <div className="App">

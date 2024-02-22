@@ -11,6 +11,7 @@ import style from './Footer.module.css'
 const Footer = () => {
     return(
     <footer className={style.footer}>
+        <div className={style.heroBackgrd}></div>
         <div className={style.container}>
             <div className={style.logoDescription}>
                 <Link to="/">

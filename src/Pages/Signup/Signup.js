@@ -8,15 +8,20 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [category, setCategory] = useState([])
+  const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
+
   const [formData, setFormData]= useState({
     name: '',
     location: '',
     phone: '',
     email:'',
+    image:'',
     password:'',
     isWorker: false,
     selectedCategory:''
   });
+
+
   const navigate = useNavigate();
   const { user , setUser } = useContext(UserContext);
 
@@ -27,18 +32,34 @@ const Signup = () => {
       [name]: value
     });
   };
-
+  const handleImageChange = (e)=>{
+    console.log(e.target.files[0])
+    setFormData((prev)=>({
+      ...prev,
+      image:e.target.files[0]
+    }))
+  }
   const handleCheckboxChange = (e) => {
     const { name, checked } = e.target;
-    console.log(name)
-    setFormData({
-      ...formData,
-      [name]: checked
-    });
+    if (!checked) {
+      setFormData({
+        ...formData,
+        [name]: checked,
+        selectedCategory: ''
+      });
+      setShowCategoryDropdown(false);
+    }else{
+      setFormData({
+        ...formData,
+        [name]: checked
+      });
+      setShowCategoryDropdown(checked);
+    }
+
   };
   const fetchCategories = async ()=>{
     try {
-      const response = await axios.get("http://localhost:5000/category/read")
+      const response = await axios.get(`${process.env.REACT_APP_PATH}/category/read`)
       if(response){
         setCategory(response.data)
         // console.log(response.data)
@@ -53,8 +74,9 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData)
     try {
-      const response = await axios.post(`http://localhost:5000/user/register`, formData, {withCredentials:true});
+      const response = await axios.post(`${process.env.REACT_APP_PATH}/user/register`, {...formData, image: formData.image},{headers: {'Content-Type': 'multipart/form-data'}});
       if(response.data){
         setUser(response.data)
       }
@@ -83,20 +105,15 @@ const Signup = () => {
           </label>
           <br />
           <label>
-            Location:
-            <select
+            Email:
+            <input
               className={Styles.inpt}
-              name="location"
-              value={formData.location}
+              type="email"
+              name="email"
+              value={formData.email}
               onChange={handleInputChange}
               required
-            >
-              {/* Your options for Lebanese cities */}
-              <option value="">Select a city</option>
-              <option value="Beirut">Beirut</option>
-              <option value="Tripoli">Tripoli</option>
-              {/* Add more options as needed */}
-            </select>
+            />
           </label>
           <br />
           <label>
@@ -112,32 +129,37 @@ const Signup = () => {
           </label>
           <br />
           <label>
-            Email:
-            <input
-              className={Styles.inpt}
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <br />
+            Image:
+          <div className={Styles.imagee}>
+          <label className={Styles.label}></label>
+          <input
+            name="image"
+            type="file"
+          onChange={handleImageChange} 
+          className={Styles.inputField}
+           
+          />
+        </div>
+        </label>
+        <br />
           <label>
-            Select Category:
+            Location:
             <select
               className={Styles.inpt}
-              name="selectedCategory"
-              value={formData.selectedCategory}
+              name="location"
+              value={formData.location}
               onChange={handleInputChange}
               required
             >
-              <option value="">Select a category</option>
-              {category.map(category => (
-                <option style={{backgroundColor:"black"}} key={category._id} value={category._id}>{category.title}</option>
-              ))}
+           
+              <option value="">Select a city</option>
+              <option value="Beirut">Beirut</option>
+              <option value="Tripoli">Tripoli</option>
+           
             </select>
           </label>
+     
+         
           <br />
           <label></label>
           <br />
@@ -162,6 +184,23 @@ const Signup = () => {
             />{' '}
             I am a worker 
           </label>
+           <br />
+           {showCategoryDropdown && (<label>
+            Select Category:
+            <select
+              className={Styles.inpt}
+              name="selectedCategory"
+              value={formData.selectedCategory}
+              onChange={handleInputChange}
+              required
+            >
+              <option value="">Select a category</option>
+              {category.map(category => (
+                <option style={{backgroundColor:"black"}} key={category._id} value={category._id}>{category.title}</option>
+              ))}
+            </select>
+          </label>)}
+          
           <br />
           <button type="submit" className={Styles.btn}>Sign Up</button>
           <p style={{ letterSpacing: "1px", color: "white" }}>Already have an account? <Link style={{ textDecoration: "none", color: "lightblue" }} to="/login">Log in</Link></p>

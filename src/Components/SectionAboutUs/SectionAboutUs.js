@@ -1,6 +1,7 @@
 import React from 'react'
 import Styles from "./SectionAboutUs.module.css"
 import { motion } from 'framer-motion'
+import {Link} from "react-router-dom"
 
 
 const slider = {
@@ -35,7 +36,7 @@ const SectionCategory = () => {
          </div>
          <div className={Styles.right}>
         <p className={Styles.righttext}>We link users to skilled handymen and job opportunities, enhancing their home maintenance experience</p>
-        <button className={Styles.btn}>Explore more</button>
+        <Link to="/about" ><button className={Styles.btn}>Explore more</button></Link>
         </div>
       </div>
       <div className={Styles.bottom}>

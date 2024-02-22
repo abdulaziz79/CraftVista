@@ -8,7 +8,7 @@ const Layout = () => {
     <div>
       <Header />
       <Outlet />
-      <div style={{marginTop:"2rem"}}></div>
+     
       <Footer />
     </div>
   )

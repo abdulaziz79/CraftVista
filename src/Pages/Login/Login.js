@@ -7,9 +7,9 @@ import {UserContext} from "../../UserContext/UserContext"
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const { fetchUserData }=useContext(UserContext)
+  // const [username, setUsername] = useState('');
+  // const [password, setPassword] = useState('');
+  const { setUser, fetchUserData }=useContext(UserContext)
   const [formData, setFormData]= useState({
     email:'',
     password:''
@@ -46,14 +46,15 @@ const Login = () => {
       return;
     }
     try {
-      const response= await axios.post(`http://localhost:5000/login`,
+      const response= await axios.post(`${process.env.REACT_APP_PATH}/login`,
       formData,
       {withCredentials:true}
       );
       console.log(response)
       if(response.data){
-        await fetchUserData()
+        await 
         // toast.success("Login successfully");
+        setUser(response.data)
         console.log("login successful")
         setTimeout(() => {
           navigate("/", { replace: true });

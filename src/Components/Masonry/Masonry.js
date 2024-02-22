@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { Suspense, lazy, useContext } from 'react';
 import Masonry from 'react-masonry-css';
 import Styles from "./Masonry.module.css";
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import image from "../../assets/images/profile.png"
+import GradeIcon from '@mui/icons-material/Grade';
+
+import { UserContext } from '../../UserContext/UserContext';
 
 const breakPointObj = {
   default: 4,
@@ -15,24 +18,23 @@ const breakPointObj = {
 }
 
 const Masonryy = ({ data }) => {
+  const {user, setUser} = useContext(UserContext)
   return (
     <Masonry  columnClassName={Styles.column} className={Styles.masonry} breakpointCols={breakPointObj}>
       {data && data.map((item) => (
         <Link to={`/profile/${item.name}`} state={item}>
         <div className={Styles.cart} key={item.id}>
           <div className={Styles.itemContainer}>
+            <p className={Styles.rate}><GradeIcon sx={{color:"gold"}} />{item.rate} ({item.number})</p>
           <p className={Styles.p}>{item.categoryId.title || ""}</p>
           <div className={Styles.profile}>
-            {/* <img src={item.image} className={Styles.prof} /> */}
-            {/* <h1 className={Styles.namee}>Abdulaziz cherkawi</h1> */}
-            {/* <p className={Styles.experience}>6 years of experience</p> */}
+
 
           </div>
-          {item.image ? <img src={`http://localhost:5000/${item.image}`} className={Styles.img} alt={item.name} />
+          {item.image ? <img src={`${process.env.REACT_APP_PATH}/${item.image}`} className={Styles.img} alt={item.name} />
            : <img src={image} className={Styles.img} /> }
 
             <div className={Styles.name}><p className={Styles.nameee}>{item.name}</p></div>
-            {/* <p className={Styles.years}>6 years of experience</p> */}
           </div>
         </div>
         </Link>

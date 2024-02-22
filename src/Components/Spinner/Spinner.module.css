@@ -1,0 +1,26 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-image: linear-gradient(rgb(14, 8, 36), rgb(10, 82, 108));
+  }
+  
+  .spinnerWrapper {
+    height: 100px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .spinner{
+    margin-bottom: 2rem;
+  }
+  .message {
+    font-size: 26px;
+    text-align: center;
+    font-weight: 600;
+    color: rgb(232, 236, 237);
+  }
+  

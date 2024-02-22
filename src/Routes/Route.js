@@ -12,6 +12,7 @@ import Workers from '../Pages/Workers/Workers';
 import Jobs from '../Pages/Jobs/Jobs';
 import Profile from '../Pages/Profile/Profile';
 import Signup from '../Pages/Signup/Signup';
+import Unauthorized from '../Pages/Unauthorized/Unauthorized';
 
 
 const Router = () => {
@@ -28,8 +29,11 @@ const Router = () => {
                 
             </Route>
             <Route path="/workers" element={<Workers />} />
+            <Route path="/unauthorized" element={<Unauthorized />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
+            <Route path='/*' element={<Signup />} />
+
 
             <Route element={
             <ProtectedRoute

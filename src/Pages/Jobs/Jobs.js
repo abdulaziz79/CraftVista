@@ -85,7 +85,7 @@
 // export default Jobs;
 
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Styles from './Jobs.module.css';
 import image from '../../assets/images/new.jpg';
 import StarIcon from '@mui/icons-material/Star';
@@ -93,13 +93,17 @@ import ListIcon from '@mui/icons-material/List';
 import axios from "axios"
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import Spinner from '../../Components/Spinner/Spinner';
+import { UserContext } from '../../UserContext/UserContext';
 
 
 
 
 const Jobs = () => {
+  console.log(process.env.REACT_APP_PATH)
   const [selected, setSelected] = useState("All")
   const [posts, setPosts] = useState([]);
+  const {user} = useContext(UserContext)
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [scrolled, setScrolled] = useState(false); 
@@ -109,11 +113,21 @@ const Jobs = () => {
   useEffect(() => {
     const fetchInitialPosts = async () => {
       setLoading(true);
-      const response =await axios.get("http://localhost:5000/post/readUserPosts")
-      setPosts(response.data);
-      console.log(response.data)
-      setLoading(false);
-      setVisiblePosts(postsPerPage);
+      setTimeout(async() => {
+        try {
+          const response =await axios.get(`${process.env.REACT_APP_PATH}/post/readUserPosts`)
+          if(response){
+            setPosts(response.data);
+            setVisiblePosts(postsPerPage);
+          }
+        } catch (error) {
+          console.log(error.message)
+        }finally{
+          setLoading(false);
+
+        }
+        
+      }, 1000);
     };
     fetchInitialPosts();
   }, []);
@@ -151,6 +165,7 @@ const Jobs = () => {
   //     window.removeEventListener('scroll', handleScroll);
   //   };
   // }, [page]);
+  if(loading) return <Spinner  message={"preparing jobs opportunities"}/>
 
   return (
     <>
@@ -170,12 +185,13 @@ const Jobs = () => {
           </div>
         </div>
         <div className={Styles.bottom}>
+        {user && user.role ==="user" && (<button className={Styles.btnAdd}>Add new post</button>)}
           {posts && posts.map((post, index) => (
             index < visiblePosts && (
               <div key={post.id} className={`${Styles.post} ${index >= visiblePosts - postsPerPage ? Styles.visible : ''}`}>
                 <div className={Styles.imgTime}>
                 {post.userId && post.userId.image ? (
-                    <img src={`http://localhost:5000/${post.userId.image}`} className={Styles.profileImage} alt="Profile" />
+                    <img src={`${process.env.REACT_APP_PATH}/${post.userId.image}`} className={Styles.profileImage} alt="Profile" />
                   ) : (
                     <AccountCircleIcon className={Styles.defaultProfileImage} style={{ color: 'gray', height:"3rem",
                   width:"3rem" }} />
@@ -187,7 +203,7 @@ const Jobs = () => {
                 </div>
                 <p style={{opacity:"0.7"}}>{post.location}</p>
                 <p className={Styles.description}>{post.description}</p>
-               {post.userId.image && <img src={`http://localhost:5000/${post.userId.image}`} className={Styles.postImage} alt="Post"></img>} 
+               {post.userId.image && <img src={`${process.env.REACT_APP_PATH}/${post.userId.image}`} className={Styles.postImage} alt="Post"></img>} 
               </div>
             )
           ))}

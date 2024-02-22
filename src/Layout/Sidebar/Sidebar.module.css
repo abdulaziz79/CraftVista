@@ -9,9 +9,9 @@
 
 }
 .bg{
-    position: absolute;
+    position: fixed;
     top: -9px;
-    right: 0;
+    right: -1px;
     height: 100vh;
     bottom: 0;
     z-index: 1000;
@@ -24,7 +24,7 @@
     border-radius: 50%;
     position: fixed;
     top: 17px;
-    right:  12px;
+    right:  9px;
     z-index: 1001;
     background-color: transparent;
     border: none;

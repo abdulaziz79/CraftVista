@@ -26,7 +26,7 @@
 
   }
   .category{
-    height: 100vh;
-    scroll-snap-align: center;
+    height: 50vh;
+    scroll-snap-align:start;
     background-color: rgb(7, 6, 27);
   }

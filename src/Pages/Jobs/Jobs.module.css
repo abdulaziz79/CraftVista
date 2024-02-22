@@ -7,14 +7,14 @@
 
 .top{
     position: relative;
-    height: 16rem;
+    height: 18rem;
     /* background-image: url(/src/assets/images/tools.jpg); */
     background-image: linear-gradient(to bottom right, #130a2e, aqua);
     /* background-color: aqua; */
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -34,7 +34,7 @@
     background-color: rgb(247, 241, 241);
     margin-bottom: 2rem;
     border-radius: 20px;
-    box-shadow: 0 0 20px rgba(30, 32, 171, 0.309)
+    box-shadow: 0 0 10px rgba(30, 32, 171, 0.216)
 }
 .profileImage{
     width: 4rem;
@@ -64,7 +64,7 @@
 }
 .topBottom{
     position: absolute;
-    bottom: -1.9rem;
+    bottom: 0;
     width: 60%;
     height: 4rem;
     flex-wrap: wrap;
@@ -85,6 +85,16 @@
     font-size: 20px;
     font-weight: 600;
     border-right: 1px solid lightgray;
+}
+.btnAdd{
+    background-color: #e7e6ec;
+    color: #130a2e;
+    height: 4rem;
+    margin-bottom: 1rem;
+    font-size: 17px;
+    font-weight: 500;
+    width: 9rem;
+    border-radius: 10px;
 }
 .location{
     background-color: #130a2e;

@@ -36,8 +36,11 @@ const Links = () => {
         "Jobs",
         "Services",
         "About",
-        `Profile`
+       
     ]
+    if(user){
+        pages.push("Profile")
+    }
 
   return (
     <motion.div className={Styles.linkss} variants={variants}>
