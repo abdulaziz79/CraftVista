@@ -1,6 +1,7 @@
 import React from 'react'
 import Styles from "./Unauthorized.module.css"
 import image from "../../assets/images/backgroundd.jpg"
+import { Link } from 'react-router-dom'
 
 function Unauthorized() {
   return (
@@ -10,7 +11,7 @@ function Unauthorized() {
         </div>
         <div className={Styles.center}>
         <p className={Styles.p}>Unauthorized</p>
-        <button className={Styles.btn}>Home Page</button>
+       <Link to="/"><button className={Styles.btn}>Go back to Home Page</button></Link>
         </div>
     </div>
   )

@@ -51,7 +51,7 @@ const Login = () => {
       {withCredentials:true}
       );
       console.log(response)
-      if(response.data){
+      if(response){
         await 
         // toast.success("Login successfully");
         setUser(response.data)

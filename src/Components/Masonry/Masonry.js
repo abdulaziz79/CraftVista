@@ -21,19 +21,16 @@ const Masonryy = ({ data }) => {
   const {user, setUser} = useContext(UserContext)
   return (
     <Masonry  columnClassName={Styles.column} className={Styles.masonry} breakpointCols={breakPointObj}>
-      {data && data.map((item) => (
-        <Link to={`/profile/${item.name}`} state={item}>
-        <div className={Styles.cart} key={item.id}>
+      { data && data.map((item, index) => (
+        <Link to={`/profile/${item.name}`} state={item} key={index}>
+        <div className={Styles.cart} >
           <div className={Styles.itemContainer}>
             <p className={Styles.rate}><GradeIcon sx={{color:"gold"}} />{item.rate} ({item.number})</p>
-          <p className={Styles.p}>{item.categoryId.title || ""}</p>
-          <div className={Styles.profile}>
-
-
-          </div>
-          {item.image ? <img src={`${process.env.REACT_APP_PATH}/${item.image}`} className={Styles.img} alt={item.name} />
-           : <img src={image} className={Styles.img} /> }
-
+            <p className={Styles.p}>{item.categoryId && item.categoryId.title || ""}</p>
+            <div className={Styles.profile}>
+            </div>
+               {item.image ? <img src={`${process.env.REACT_APP_PATH}/${item.image}`} className={Styles.img} alt={item.name} />
+               : <img src={image} className={Styles.img} /> }
             <div className={Styles.name}><p className={Styles.nameee}>{item.name}</p></div>
           </div>
         </div>

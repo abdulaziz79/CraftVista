@@ -5,6 +5,9 @@ import { UserContext } from '../../UserContext/UserContext';
 import { useContext } from 'react';
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
+import "./Signup.css"
 
 const Signup = () => {
   const [category, setCategory] = useState([])
@@ -20,7 +23,6 @@ const Signup = () => {
     isWorker: false,
     selectedCategory:''
   });
-
 
   const navigate = useNavigate();
   const { user , setUser } = useContext(UserContext);
@@ -77,103 +79,171 @@ const Signup = () => {
     console.log(formData)
     try {
       const response = await axios.post(`${process.env.REACT_APP_PATH}/user/register`, {...formData, image: formData.image},{headers: {'Content-Type': 'multipart/form-data'}});
-      if(response.data){
+      if(response){
         setUser(response.data)
+        console.log(response.error);
+
       }
-      console.log(response);
       navigate("/");
     } catch (error) {
-      console.log(error.message);
+      if(error.response && error.response.status === 401) {
+        console.log("email already there")
+      } else {
+
+        console.log(error.message);
+      }
     }
   };
-
+  const styleField = {
+    '& .MuiOutlinedInput-root': {
+      borderColor: 'white', // Default border color
+      '&.Mui-focused .MuiOutlinedInput-notchedOutline': { // More specific selector for focus
+        borderColor: 'white',
+      },
+      '&.Mui-focused .MuiInputLabel-root': { // Target the label when focused
+        color: 'white', // Change label color to white on focus
+      },
+      '&:hover .MuiOutlinedInput-notchedOutline': { // More specific selector for hover
+        borderColor: 'white',
+      },
+      '& .MuiOutlinedInput-notchedOutline': { // More specific selector for hover
+        borderColor: 'white',
+      },
+      '& .MuiInputLabel-root': {
+        color: 'white'
+      },
+      '&:focus .MuiInputLabel-root': {
+        color: 'white'
+      },
+      '& .MuiInputLabel-root': {
+        color: 'white',
+        '&.Mui-focused': {
+          color: 'white',
+          borderColor: 'white' // Set label color to white when focused
+        },
+      },
+    },
+    '& .MuiInputLabel-root': {
+      color: 'white',
+      borderColor: 'white'
+    },
+  }
   return (
     <div className={Styles.body}>
       <div className={Styles.container}>
         <h2 className={Styles.h2}>Sign Up</h2>
         <form className={Styles.form} onSubmit={handleSubmit}>
-          <label>
-            Name:
-            <input
-              className={Styles.inpt}
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <br />
-          <label>
-            Email:
-            <input
-              className={Styles.inpt}
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <br />
-          <label>
-            Phone Number:
-            <input
-              className={Styles.inpt}
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <br />
-          <label>
-            Image:
-          <div className={Styles.imagee}>
-          <label className={Styles.label}></label>
-          <input
-            name="image"
-            type="file"
-          onChange={handleImageChange} 
-          className={Styles.inputField}
-           
+          <TextField
+            label="Name"
+            className={Styles.inpt}
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+            fullWidth
+            variant="outlined"
+           sx={styleField}
+            InputLabelProps={{
+              style: { color: 'white' }
+            }}
           />
-        </div>
-        </label>
-        <br />
-          <label>
-            Location:
-            <select
-              className={Styles.inpt}
-              name="location"
-              value={formData.location}
-              onChange={handleInputChange}
-              required
-            >
-           
-              <option value="">Select a city</option>
-              <option value="Beirut">Beirut</option>
-              <option value="Tripoli">Tripoli</option>
-           
-            </select>
-          </label>
-     
-         
           <br />
-          <label></label>
+          <TextField
+            label="Email"
+            className={Styles.inpt}
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+            fullWidth
+            variant="outlined"
+            sx={styleField}
+
+            InputProps={{
+              style: { color: 'white' },
+              className: Styles.inputField
+            }}
+            InputLabelProps={{
+              style: { color: 'white', borderColor:"white" }
+            }}
+            
+          />
           <br />
-          <label>
-            Password:
+          <TextField
+            label="Phone Number"
+            className={Styles.inpt}
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleInputChange}
+            required
+            fullWidth
+            variant="outlined"
+            sx={styleField}
+            InputProps={{
+              style: { color: 'white' },
+              className: Styles.inputField
+            }}
+            InputLabelProps={{
+              style: { color: 'white' }
+            }}
+          />
+          <br />
+          <div className={Styles.imagee}>
+            {/* <label className={Styles.label}>Image:</label> */}
             <input
-              className={Styles.inpt}
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              required
+              name="image"
+              type="file"
+              onChange={handleImageChange}
+              className={Styles.inputField}
             />
-          </label>
+          </div>
+          <br />
+          <TextField
+            label="Location"
+            className={Styles.inpt}
+            select
+            name="location"
+            value={formData.location}
+            onChange={handleInputChange}
+            required
+            fullWidth
+            variant="outlined"
+            sx={styleField}
+            InputProps={{
+              style: { color: 'white' },
+              className: Styles.inputField
+            }}
+            InputLabelProps={{
+              style: { color: 'white' }
+            }}
+          >
+            <MenuItem value="">Select a city</MenuItem>
+            <MenuItem value="Beirut">Beirut</MenuItem>
+            <MenuItem value="Tripoli">Tripoli</MenuItem>
+          </TextField>
+          <br />
+          <TextField
+            label="Password"
+            className={Styles.inpt}
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
+            required
+            fullWidth
+            variant="outlined"
+            sx={styleField}
+            InputProps={{
+              style: { color: 'white' },
+              className: Styles.inputField
+            }}
+            InputLabelProps={{
+              style: { color: 'white' }
+            }}
+          />
           <br />
           <label>
             <input
@@ -184,23 +254,33 @@ const Signup = () => {
             />{' '}
             I am a worker 
           </label>
-           <br />
-           {showCategoryDropdown && (<label>
-            Select Category:
-            <select
+          <br />
+          {showCategoryDropdown && (
+            <TextField
+              label="Select Category"
               className={Styles.inpt}
+              select
               name="selectedCategory"
               value={formData.selectedCategory}
               onChange={handleInputChange}
               required
+              fullWidth
+              variant="outlined"
+              sx={styleField}
+              InputProps={{
+                style: { color: 'white' },
+                className: Styles.inputField
+              }}
+              InputLabelProps={{
+                style: { color: 'white' }
+              }}
             >
-              <option value="">Select a category</option>
+              <MenuItem value="">Select a category</MenuItem>
               {category.map(category => (
-                <option style={{backgroundColor:"black"}} key={category._id} value={category._id}>{category.title}</option>
+                <MenuItem key={category._id} value={category._id}>{category.title}</MenuItem>
               ))}
-            </select>
-          </label>)}
-          
+            </TextField>
+          )}
           <br />
           <button type="submit" className={Styles.btn}>Sign Up</button>
           <p style={{ letterSpacing: "1px", color: "white" }}>Already have an account? <Link style={{ textDecoration: "none", color: "lightblue" }} to="/login">Log in</Link></p>

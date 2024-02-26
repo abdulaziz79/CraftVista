@@ -36,7 +36,10 @@ const SectionCategory = () => {
          </div>
          <div className={Styles.right}>
         <p className={Styles.righttext}>We link users to skilled handymen and job opportunities, enhancing their home maintenance experience</p>
-        <Link to="/about" ><button className={Styles.btn}>Explore more</button></Link>
+        {/* <Link to="/about" ><button className={Styles.btn}>Explore more</button></Link> */}
+        <Link to="/about" ><button className={Styles.btnn}> Explore more</button></Link>
+
+        {/* <button className={Styles.btnn}> Hover me</button> */}
         </div>
       </div>
       <div className={Styles.bottom}>

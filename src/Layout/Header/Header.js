@@ -54,13 +54,21 @@ const Header = () => {
       <div className={Styles.wrapper}>
         <span className={Styles.span}>whatever</span>
         <div className={Styles.profile}>{getPageName()}</div>
-        {user ? (
+        {user && user.role!=="admin"? (
           <button onClick={handleLogout}> logout </button>
-        ) : (
-          <Link to="/signup">
-            <p style={{ cursor: "pointer", color: "lightgray" }}>signup</p>
+        ) : user && user.role==="admin"?(
+          <Link to="/dashboard">
+            <p style={{ cursor: "pointer", color: "lightgray" }}>dashboard</p>
           </Link>
-        )}
+        )
+      :(
+        <Link to="/signup">
+        <p style={{ cursor: "pointer", color: "lightgray" }}>signup</p>
+      </Link>
+    )
+      
+}
+
       </div>
     </div>
   )

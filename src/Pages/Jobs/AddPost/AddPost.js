@@ -3,13 +3,13 @@ import Styles from "./AddPost.module.css";
 import axios from 'axios';
  import {UserContext} from "../../../UserContext/UserContext"
 const Addpost = ({setAddPost , fetchData}) => {
-  const { user } = useContext(UserContext); // Assuming your context provides userId
-
+  const { user } = useContext(UserContext); 
+console.log("sssssssssssssssssssssssssssssssssssss",user)
   const [formData, setFormData] = useState({
     description: '',
     image: '',
     location: '',
-    userId: user._id, 
+    userId: user&& user.userId, 
     categoryId: ''
   });
   const[categories, setCategories]= useState([])

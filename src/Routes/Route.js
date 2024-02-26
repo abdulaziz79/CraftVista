@@ -13,6 +13,7 @@ import Jobs from '../Pages/Jobs/Jobs';
 import Profile from '../Pages/Profile/Profile';
 import Signup from '../Pages/Signup/Signup';
 import Unauthorized from '../Pages/Unauthorized/Unauthorized';
+import Overview from '../Pages/Overview/Overview';
 
 
 const Router = () => {
@@ -41,7 +42,12 @@ const Router = () => {
             redirectPath="/unauthorized" 
             />
             }>
-              <Route path='/dashboard' element={<Dashboard />} />
+              <Route path='/dashboard' element={<Dashboard />} >
+                <Route path='overview' index element={<Overview />} />
+                <Route path='workers' index element={<Overview />} />
+                <Route path='users' index element={<Overview />} />
+                <Route path='categories' index element={<Overview />} />
+              </Route>
 
             </Route>
         </Routes>

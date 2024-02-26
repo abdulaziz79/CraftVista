@@ -17,7 +17,15 @@ const Workers = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
+  const [search, setSearch] = useState('')
 
+  const handleSearch = (query)=>{
+    setSearch(query)
+  }
+
+  const filteredData= data.filter(worker =>
+    worker.name.toLowerCase().includes(search.toLowerCase())
+    )
   const fetchData = async () => {
     setLoading(true);
   
@@ -34,6 +42,12 @@ const Workers = () => {
       }
     }, 1000); 
   };
+
+  const sortDataByRate = () => {
+    const sortedData = [...data].sort((a, b) => b.rate - a.rate); 
+    setData(sortedData);
+  };
+
   
   useEffect(()=>{
     fetchData()
@@ -58,10 +72,12 @@ const Workers = () => {
         </div>
       <div className={Styles.right}>
         <div className={Styles.nav}>
-          <NavWorker />
+          <NavWorker fetchData={fetchData} sortDataByRate={sortDataByRate} handleSearch={handleSearch} />
         </div>
-        
-      <Masonryy data={data}  />
+        <div className={Styles.bottomRight}>
+      <Masonryy data={filteredData}  />
+
+        </div>
       </div>
       </div>
     </div>

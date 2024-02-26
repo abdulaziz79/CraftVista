@@ -95,8 +95,9 @@ import LocationCityIcon from '@mui/icons-material/LocationCity';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Spinner from '../../Components/Spinner/Spinner';
 import { UserContext } from '../../UserContext/UserContext';
-
-
+import { Link } from 'react-router-dom';
+import Addpost from './AddPost/AddPost';
+import imagee from "../../assets/images/post.jpg"
 
 
 const Jobs = () => {
@@ -108,6 +109,7 @@ const Jobs = () => {
   const [page, setPage] = useState(1);
   const [scrolled, setScrolled] = useState(false); 
   const [visiblePosts, setVisiblePosts] = useState(0); 
+  const [addPost, setAddPost] = useState(false)
   const postsPerPage = 3;
 
   useEffect(() => {
@@ -131,6 +133,30 @@ const Jobs = () => {
     };
     fetchInitialPosts();
   }, []);
+
+  function formatTimeSince(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+
+    const seconds = Math.floor((now - date) / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    if (days > 0) {
+      if (days === 1) {
+        return 'Yesterday';
+      } else {
+        return date.toLocaleDateString(); // You can format the date however you want
+      }
+    } else if (hours > 0) {
+      return `${hours} hour${hours === 1 ? '' : 's'} ago`;
+    } else if (minutes > 0) {
+      return `${minutes} minute${minutes === 1 ? '' : 's'} ago`;
+    } else {
+      return "just now";
+    }
+  }
 
   // useEffect(() => {
   //   const fetchPosts = async () => {
@@ -184,12 +210,18 @@ const Jobs = () => {
               </select>
           </div>
         </div>
+        <div className={Styles.add}>
+        {user && user.role ==="user" && (<button className={Styles.btnAdd}  onClick={()=>setAddPost(prev => !prev)}>Add new post</button>)}
+        </div>
         <div className={Styles.bottom}>
-        {user && user.role ==="user" && (<button className={Styles.btnAdd}>Add new post</button>)}
+        {console.log(posts)}
           {posts && posts.map((post, index) => (
-            index < visiblePosts && (
+            // index < visiblePosts && (
+              <Link to ={`/profile/${post.userId.name}`} state={post.userId} key={index}>
               <div key={post.id} className={`${Styles.post} ${index >= visiblePosts - postsPerPage ? Styles.visible : ''}`}>
+                <div className={Styles.categ}>{post.categoryId.title}</div>
                 <div className={Styles.imgTime}>
+                {/* {console.log(post)} */}
                 {post.userId && post.userId.image ? (
                     <img src={`${process.env.REACT_APP_PATH}/${post.userId.image}`} className={Styles.profileImage} alt="Profile" />
                   ) : (
@@ -198,17 +230,22 @@ const Jobs = () => {
                   )}
                   <div className={Styles.nametime}>
                     <p className={Styles.name}>{post.userId.name}</p>
-                    <p className={Styles.time}>{post.time}</p>
+                    <p className={Styles.time}>{formatTimeSince(post.createdAt)}</p>
                   </div>
                 </div>
                 <p style={{opacity:"0.7"}}>{post.location}</p>
                 <p className={Styles.description}>{post.description}</p>
-               {post.userId.image && <img src={`${process.env.REACT_APP_PATH}/${post.userId.image}`} className={Styles.postImage} alt="Post"></img>} 
+               {post.image ? ( <img src={`${process.env.REACT_APP_PATH}/${post.image}`} className={Styles.postImage} alt="Post"></img>)
+              :(<img src={imagee} className={Styles.postImage}></img>) 
+              } 
               </div>
-            )
+              </Link>
+            // )
           ))}
           {loading && <p>Loading...</p>}
         </div>
+        {addPost &&  <div className={Styles.formm}><Addpost  setAddPost={setAddPost}/></div>}
+
       </div>
     </>
   );

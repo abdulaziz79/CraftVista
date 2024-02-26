@@ -1,5 +1,5 @@
 .container{
-    height: 100%;
+    height: 100vh;
     width: 98%;
     /* background:linear-gradient(180deg, #0f0f2f, #d4d4d7); */
     background-color: white;
@@ -15,7 +15,7 @@
 .left{
     position: relative;
     width: 32rem;
-    height: 100vh;
+    height: 98vh;
     display: flex;
     flex-direction: column;
     margin-right: 1rem;
@@ -25,6 +25,11 @@
 .right{
     /* margin-top: 8rem; */
     width: calc(100vw - 30rem);
+}
+.bottomRight{
+    height: 85vh;
+    overflow-y: scroll;
+    /* border: 1px solid red; */
 }
 .topLeft{
     display: flex;

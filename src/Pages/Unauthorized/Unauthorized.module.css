@@ -43,3 +43,9 @@
     font-size: 20px;
     color: white;
 }
+.btn:hover{
+    color: black;
+    background-color: orange;
+    transition: 0.2s;
+    box-shadow: 0 0 20px white;
+}

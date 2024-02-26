@@ -16,17 +16,12 @@ import Rating from '@mui/material/Rating';
 import Box from '@mui/material/Box';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-
-
-
 const Profile = () => {
-  
-
   const location=useLocation()
   const [workerData,setWorkerData]=useState(null)
   const [dataa, setDataa]= useState([])
   const [addPost, setAddPost] = useState(false)
-  const {user, setUser} = useContext(UserContext)
+  const {user, setUser, checkUser} = useContext(UserContext)
   const [mine,setMine]=useState(false)
   const [anchorEl, setAnchorEl] = useState(null);
   const [value, setValue] = useState(0);
@@ -38,8 +33,11 @@ const Profile = () => {
   console.log(workerData)
 
   const handleChange = (event, newValue) => {
-    setValue(newValue)
-    handleSubmit(newValue)
+    if(user && user.role !== "admin"){
+      setValue(newValue)
+      handleSubmit(newValue)
+    }else{
+console.log("you have to registe")    }
 
   };
 
@@ -47,11 +45,10 @@ const Profile = () => {
    setAnchorEl(null);
  };
 
-console.log("userrrrrrrrrrrrrr jot ounnn")
   useEffect(()=>{
     const worker=location.state && location.state
     console.log(worker)
-    console.log(user)
+    // console.log(user)
     if(user && worker===null){
       setMine(true)
       console.log("userrrrrrrrrrrrrrrrrrrrr",user)
@@ -59,7 +56,7 @@ console.log("userrrrrrrrrrrrrr jot ounnn")
     }
     else{
       setWorkerData(worker)
-      setFormData(prev => ({ ...prev,"rated":worker._id,'rater':user&&user._id}));
+      setFormData(prev => ({ ...prev,"rated":worker && worker._id,'rater':user&&user._id}));
 
     }
   },[location,user])
@@ -77,12 +74,7 @@ console.log("userrrrrrrrrrrrrr jot ounnn")
       const response = await axios.post(`${process.env.REACT_APP_PATH}/rate/create`,rateData)
       if(response){
         console.log("responsssssssssse", response.data)
-        fetchData()
-        // setWorkerData(prevWorkerData => ({
-        //   ...prevWorkerData, // Keep existing workerData properties
-        //   'rate': response.data.average, // Update rate with average from response
-        //   'number': response.data.number // Update number with number from response
-        // }));    
+    
         }
     } catch (error) {
       console.log(error.message)
@@ -116,12 +108,39 @@ console.log("userrrrrrrrrrrrrr jot ounnn")
       console.log(error.message)
     }
   }
+
+  function formatTimeSince(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+
+    const seconds = Math.floor((now - date) / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    if (days > 0) {
+      if (days === 1) {
+        return 'Yesterday';
+      } else {
+        return date.toLocaleDateString(); // You can format the date however you want
+      }
+    } else if (hours > 0) {
+      return `${hours} hour${hours === 1 ? '' : 's'} ago`;
+    } else if (minutes > 0) {
+      return `${minutes} minute${minutes === 1 ? '' : 's'} ago`;
+    } else {
+      return "just now";
+    }
+  }
+
   return (
     <div className={Styles.container}>
+      {checkUser ? (<div>loading...</div>) :(
+    <>   
       <div className={Styles.top}>
         { workerData&& workerData.image ?( <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.img}></img>)
   : (<img src={img} className={Styles.img} alt='profile picture' />) }
-             {mine&&(<button onClick={()=>setAddPost(prev => !prev) } className={Styles.btnAdd}> +</button>)} 
+             {mine&& user.role !=="admin" &&(<button onClick={()=>setAddPost(prev => !prev) } className={Styles.btnAdd}> +</button>)} 
 
       </div>
       <div className={Styles.bottom}>
@@ -135,7 +154,7 @@ console.log("userrrrrrrrrrrrrr jot ounnn")
             <p className={Styles.location}><CalendarMonthIcon />- Joined April 2022</p>
             <p className={Styles.location}> <GradeIcon sx={{color:"gold"}} /> {workerData.rate} ({workerData.number})</p>
         </div>
-          </>
+       </>
         )
 }
        
@@ -146,11 +165,12 @@ console.log("userrrrrrrrrrrrrr jot ounnn")
           : <img src={img} className={Styles.postProfile}></img> }
           <div className={Styles.nameLocation}>
           <p className={Styles.namePost}>{workerData.name}</p>
+          <p className={Styles.location}>{formatTimeSince(item.createdAt)}</p>
+          </div>
+          </div>
+            
           <p className={Styles.location}>{item.location}<LocationOnIcon /></p>
-          </div>
-          </div>
-            
-            
+
             <p className={Styles.desc}>{item.description} </p>
            {/* {mine&&(<MoreVertIcon className={Styles.dots} onClick={()=> deletePost(item._id)} /> )}  */}
            {mine&&( <div className={Styles.editDelete}>
@@ -207,7 +227,7 @@ console.log("userrrrrrrrrrrrrr jot ounnn")
       </div>
         {addPost &&  <div className={Styles.formm}><Addpost fetchData={fetchData}  setAddPost={setAddPost}/></div>}
 
-
+        </>)}
     </div>
   )
 }
