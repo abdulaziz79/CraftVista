@@ -25,7 +25,7 @@ const Signup = () => {
   });
 
   const navigate = useNavigate();
-  const { user , setUser } = useContext(UserContext);
+  const { user , setUser, fetchUserData } = useContext(UserContext);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -82,6 +82,8 @@ const Signup = () => {
       if(response){
         setUser(response.data)
         console.log(response.error);
+        fetchUserData()
+        
 
       }
       navigate("/");

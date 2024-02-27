@@ -51,15 +51,13 @@ const Login = () => {
       {withCredentials:true}
       );
       console.log(response)
-      if(response){
-        await 
-        // toast.success("Login successfully");
-        setUser(response.data)
-        console.log("login successful")
-        setTimeout(() => {
-          navigate("/", { replace: true });
-        }, 1000);
-      }
+      if (response) {
+    await fetchUserData();
+    console.log("login successful");
+    setTimeout(() => {
+        navigate("/", { replace: true });
+    }, 1000);
+}
     } catch (error) {
       console.log(error.message)
     }

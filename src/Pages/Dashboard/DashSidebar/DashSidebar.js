@@ -38,6 +38,7 @@ import { useContext } from 'react';
 // import Styles from "./DashSidebar.module.css"
 import { UserContext } from '../../../UserContext/UserContext';
 import { useNavigate } from "react-router-dom";
+import DashPosts from '../../DashPosts/DashPosts';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-toastify/dist/ReactToastify.minimal.css";
@@ -117,6 +118,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const menuItems = [
   { text: 'Overview', color:"white",icon: <DashboardIcon /> },
   { text: 'Workers', icon: <PeopleIcon /> },
+  { text: 'Posts', icon: <InboxIcon /> },
+
   { text: 'Users', icon: <PeopleIcon /> },
   { text: 'Categories', icon: <CategoryIcon /> },
   
@@ -264,6 +267,7 @@ export default function DashSidebar() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
    {/* <Productstable/> */}
    {/* <AddEditProduct/> */}
+   <DashPosts />
       </Box>
     <DrawerHeader />
     </Box>

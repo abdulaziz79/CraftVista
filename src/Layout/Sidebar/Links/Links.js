@@ -28,7 +28,7 @@ const itemVariants = {
     }
 }
 
-const Links = () => {
+const Links = ({handleClose}) => {
     const {user } =useContext(UserContext)
     const pages=[
         "HomePage",
@@ -39,7 +39,7 @@ const Links = () => {
        
     ]
     if(user){
-        pages.push("Profile")
+        pages.push("MyProfile")
     }
 
   return (
@@ -47,11 +47,11 @@ const Links = () => {
     {pages.map(page=>(
         <motion.div variants={itemVariants} key={page}>
             {page === "HomePage" ? (
-                <Link to="/" style={{fontSize:"36px", color:"black",fontWeight:"400"}}>
+                <Link to="/" style={{fontSize:"36px", color:"black",fontWeight:"400"}} onClick={()=>handleClose()}>
                     {page}
                 </Link>
             ) : (
-                <Link to={`/${page.toLowerCase()}`} style={{fontSize:"36px", color:"black",fontWeight:"400"}}>
+                <Link to={`/${page.toLowerCase()}`} style={{fontSize:"36px", color:"black",fontWeight:"400"}} onClick={()=>handleClose()}>
                     {page}
                 </Link>
             )}

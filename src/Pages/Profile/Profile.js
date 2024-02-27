@@ -18,18 +18,19 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const Profile = () => {
   const location=useLocation()
-  const [workerData,setWorkerData]=useState(null)
+  const [workerData,setWorkerData]=useState({})
   const [dataa, setDataa]= useState([])
+  const [updated, setUpdated]= useState()
   const [addPost, setAddPost] = useState(false)
   const {user, setUser, checkUser} = useContext(UserContext)
   const [mine,setMine]=useState(false)
   const [anchorEl, setAnchorEl] = useState(null);
   const [value, setValue] = useState(0);
   const [formData, setFormData] = useState({
-    rater:user && user._id,
+    rater:user && user.userId,
     rated:''
   })
-  console.log(user)
+  // console.log(user.user)
   console.log(workerData)
 
   const handleChange = (event, newValue) => {
@@ -45,13 +46,16 @@ console.log("you have to registe")    }
    setAnchorEl(null);
  };
 
+
   useEffect(()=>{
     const worker=location.state && location.state
-    console.log(worker)
+    console.log("workerrrrrr",worker)
+  
     // console.log(user)
-    if(user && worker===null){
+    if(user && (worker===null || user.userId===worker?._id)){
+      console.log("minnnnnnnnnnnnnnnnneeeeeeeee")
       setMine(true)
-      console.log("userrrrrrrrrrrrrrrrrrrrr",user)
+      console.log("userrrrrrrrrrrrrrrrrrrrr",user.userId)
       setWorkerData(user)
     }
     else{
@@ -59,23 +63,31 @@ console.log("you have to registe")    }
       setFormData(prev => ({ ...prev,"rated":worker && worker._id,'rater':user&&user._id}));
 
     }
-  },[location,user])
+    console.log(location.state)
+    const fetchUser = async () => {
+      const id=location.state? location.state._id:user._id
+    const res = await axios.get(`${process.env.REACT_APP_PATH}/user/read/${id}`)
+    setWorkerData(res.data)
+
+  }
+  fetchUser()
+  },[location,user, updated])
 
   useEffect(()=>{
 
     fetchData()
     // console.log(worker)
-  },[workerData])
+  },[workerData , updated])
 
   const handleSubmit= async(value)=>{
     // setFormData(prev => ({ ...prev, 'value': value }));
     const rateData={...formData,'value':value}
     try {
       const response = await axios.post(`${process.env.REACT_APP_PATH}/rate/create`,rateData)
-      if(response){
         console.log("responsssssssssse", response.data)
-    
-        }
+        // setWorkerData(response.data.updatedUserData); 
+        fetchData()
+        setUpdated(response.data)
     } catch (error) {
       console.log(error.message)
     }
@@ -138,6 +150,8 @@ console.log("you have to registe")    }
       {checkUser ? (<div>loading...</div>) :(
     <>   
       <div className={Styles.top}>
+      <div className={Styles.heroBackgrd}></div>
+
         { workerData&& workerData.image ?( <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.img}></img>)
   : (<img src={img} className={Styles.img} alt='profile picture' />) }
              {mine&& user.role !=="admin" &&(<button onClick={()=>setAddPost(prev => !prev) } className={Styles.btnAdd}> +</button>)} 
@@ -152,7 +166,7 @@ console.log("you have to registe")    }
         <div className={Styles.info}>
             <p className={Styles.location}><LocationOnIcon /> {workerData.location}</p>
             <p className={Styles.location}><CalendarMonthIcon />- Joined April 2022</p>
-            <p className={Styles.location}> <GradeIcon sx={{color:"gold"}} /> {workerData.rate} ({workerData.number})</p>
+            <p className={Styles.location}> <GradeIcon sx={{color:"gold"}} /> {workerData.averageRate} ({workerData.number})</p>
         </div>
        </>
         )

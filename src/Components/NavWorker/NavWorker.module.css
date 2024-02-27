@@ -53,7 +53,7 @@
     transition: background-color 0.3s ease-in-out;
 }
 .active{
-    background-color: rgb(22, 96, 109);
+    background-color: rgba(0, 0, 0, 0.759);
     color: white;
     font-size: 17px;
     font-weight: 600;
@@ -61,15 +61,18 @@
 
 }
 .btn1:hover {
-    background-color: rgba(22, 96, 109, 0.8);
+    background-color: rgba(1, 11, 13, 0.8);
+    color: white;
   }
   .btn2:hover {
     /* background-color: rgba(22, 96, 109, 0.8); */
-    background-color: rgba(22, 96, 109, 0.8);
+    background-color: rgba(1, 1, 1, 0.8);
     transition: 0.2s;
+    color: white;
   }
   .btn3:hover {
-    background-color: rgba(22, 96, 109, 0.8);
+    background-color: rgba(6, 9, 10, 0.8);
+    color: white;
   }
   .searchInput{
     height: 3rem;

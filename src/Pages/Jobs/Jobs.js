@@ -95,6 +95,8 @@ import LocationCityIcon from '@mui/icons-material/LocationCity';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Spinner from '../../Components/Spinner/Spinner';
 import { UserContext } from '../../UserContext/UserContext';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+
 import { Link } from 'react-router-dom';
 import Addpost from './AddPost/AddPost';
 import imagee from "../../assets/images/post.jpg"
@@ -110,29 +112,83 @@ const Jobs = () => {
   const [scrolled, setScrolled] = useState(false); 
   const [visiblePosts, setVisiblePosts] = useState(0); 
   const [addPost, setAddPost] = useState(false)
+  const [categories, setCategories]= useState([])
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState('');
+  const [filters,setFilter]=useState({role:'user'})
   const postsPerPage = 3;
 
-  useEffect(() => {
-    const fetchInitialPosts = async () => {
-      setLoading(true);
-      setTimeout(async() => {
-        try {
-          const response =await axios.get(`${process.env.REACT_APP_PATH}/post/readUserPosts`)
-          if(response){
-            setPosts(response.data);
-            setVisiblePosts(postsPerPage);
-          }
-        } catch (error) {
-          console.log(error.message)
-        }finally{
-          setLoading(false);
+const handleChange = (e) => {
+  setFilter((prev) => ({
+    ...prev,
+    [e.target.name]: e.target.value
+  }))
 
+  console.log(filters)
+}
+
+useEffect(()=>{
+fetchFilter()
+},[filters])
+
+  // const handleCategoryChange = (event) => {
+  //   setSelectedCategory(event.target.value);
+  // };
+  // const handleLocationChange = (event) => {
+  //   setSelectedLocation(event.target.value);
+  // };
+  const fetchInitialPosts = async () => {
+    setLoading(true);
+    setTimeout(async() => {
+      try {
+        const response =await axios.get(`${process.env.REACT_APP_PATH}/post/readUserPosts`)
+        if(response){
+          setPosts(response.data);
+          setVisiblePosts(postsPerPage);
         }
-        
-      }, 1000);
-    };
-    fetchInitialPosts();
+      } catch (error) {
+        console.log(error.message)
+      }finally{
+        setLoading(false);
+
+      }
+      
+    }, 1000);
+  };
+
+  useEffect(() => {
+
+    // fetchInitialPosts();
   }, []);
+
+  const fetchCategories = async()=>{
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_PATH}/category/read`)
+      if(response){
+        console.log(response.data)
+        setCategories(response.data)
+      }
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+  const fetchFilter = async()=>{
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_PATH}/post/filter`,null,{
+        params:filters
+      })
+      if(response){
+        setPosts(response.data)
+        console.log("ssssssssssssssssssssssssssssss",response.data[0].user[0].name)
+      }
+    } catch (error) {
+      
+    }
+  }
+  useEffect(()=>{
+    fetchCategories()
+    
+  },[])
 
   function formatTimeSince(dateString) {
     const date = new Date(dateString);
@@ -199,11 +255,16 @@ const Jobs = () => {
         <div className={Styles.top}>
           <div className={Styles.topBottom}>
           <button className={Styles.btn}><ListIcon sx={{marginRight:"2rem", height:"2.5rem", width:"2.5rem"}} /> All</button>
-            <button className={Styles.btn}><StarIcon sx={{marginRight:"2rem", height:"2rem", width:"2rem"}} /> Rate</button>
-              <select name="location" className={Styles.location}>
+          <select name="category" className={Styles.location} value={selectedCategory} onChange={handleChange} >
+                  <option value=""><LocationCityIcon /> Select a category</option>
+                  {categories.map(category => (
+              <option key={category._id} value={category._id}>{category.title}</option>
+            ))}
+              </select>              
+              <select name="location" className={Styles.location} value={filters.location|| ''}  onChange={handleChange}>
                   <option value=""><LocationCityIcon /> Select a city</option>
                   <option value="Beirut">Beirut</option>
-                  <option value="Tripoli">Tripoli</option>
+                  <option value="tripoli">Tripoli</option>
                   <option value="Sidon">Sidon</option>
                   <option value="Tyre">Tyre</option>
                   <option value="Jounieh">Jounieh</option>
@@ -217,23 +278,23 @@ const Jobs = () => {
         {console.log(posts)}
           {posts && posts.map((post, index) => (
             // index < visiblePosts && (
-              <Link to ={`/profile/${post.userId.name}`} state={post.userId} key={index}>
+              // console.log(post.userId.name)
+              <Link to ={`/profile/${post.user[0].name}`} state={post.user[0]} key={index}>
               <div key={post.id} className={`${Styles.post} ${index >= visiblePosts - postsPerPage ? Styles.visible : ''}`}>
-                <div className={Styles.categ}>{post.categoryId.title}</div>
+                <div className={Styles.categ}>{post.category[0].title}</div>
                 <div className={Styles.imgTime}>
                 {/* {console.log(post)} */}
-                {post.userId && post.userId.image ? (
-                    <img src={`${process.env.REACT_APP_PATH}/${post.userId.image}`} className={Styles.profileImage} alt="Profile" />
-                  ) : (
-                    <AccountCircleIcon className={Styles.defaultProfileImage} style={{ color: 'gray', height:"3rem",
-                  width:"3rem" }} />
-                  )}
+                {post.user && post.user[0].image ? (
+  <img src={`${process.env.REACT_APP_PATH}/${post.user[0].image}`} className={Styles.profileImage} alt="Profile" />
+) : (
+  <AccountCircleIcon className={Styles.defaultProfileImage} style={{ color: 'gray', height:"3rem", width:"3rem" }} />
+)}
                   <div className={Styles.nametime}>
-                    <p className={Styles.name}>{post.userId.name}</p>
+                  <p className={Styles.name}>{post.user[0].name}</p>
                     <p className={Styles.time}>{formatTimeSince(post.createdAt)}</p>
                   </div>
                 </div>
-                <p style={{opacity:"0.7"}}>{post.location}</p>
+                <p style={{opacity:"0.7"}}><LocationOnIcon />{post.location}</p>
                 <p className={Styles.description}>{post.description}</p>
                {post.image ? ( <img src={`${process.env.REACT_APP_PATH}/${post.image}`} className={Styles.postImage} alt="Post"></img>)
               :(<img src={imagee} className={Styles.postImage}></img>) 

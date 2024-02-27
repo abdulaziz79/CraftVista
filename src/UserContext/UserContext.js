@@ -17,7 +17,7 @@ export const UserProvider = ({children})=>{
     const fetchUserData= async () => {
         try {
             setCheckUser(true)
-            const response = await axios.get(`http://localhost:5001/logged-in-user`,
+            const response = await axios.get(`${process.env.REACT_APP_PATH}/logged-in-user`,
             {withCredentials:true}
             )
             setUser(response.data.user)

@@ -51,11 +51,11 @@ console.log("addddddddddddddddddddddddd")
     // console.log(formData)
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
   console.log("submittt")
     try {
-      const response = axios.post(`${process.env.REACT_APP_PATH}/post/create`,formData, {headers:{"Content-Type":"multipart/form-data"}})
+      const response =await axios.post(`${process.env.REACT_APP_PATH}/post/create`,formData, {headers:{"Content-Type":"multipart/form-data"}})
       if(response){
         setFormData({
           description: '',

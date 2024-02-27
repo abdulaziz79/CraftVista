@@ -5,7 +5,20 @@
 .top{
     height: 20rem;
     position: relative;
-    background-image: linear-gradient(to bottom right, #130a2e, aqua);
+    /* background-image: linear-gradient(to bottom right, #000000d7, rgb(0, 0, 0)); */
+    background-image: url(/src/assets/images/tools.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+.heroBackgrd {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.82); 
 }
 .img{
     position: absolute;
@@ -13,6 +26,7 @@
     width: 10rem;
     object-fit: cover;
     border-radius: 50%;
+    z-index: 2;
     bottom: -14%;
     left: 13%;
     border: 3px solid white;
@@ -81,7 +95,7 @@
     max-height: 50rem;
     /* height: 50rem; */
     max-width: 56rem;
-    background-color: rgb(247, 241, 241);
+    background-color: rgb(225, 220, 220);
     margin-bottom: 2rem;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(30, 32, 171, 0.117)
@@ -96,7 +110,7 @@
 .postImage{
     width: 100%;
     object-fit: cover;
-    height: 40rem;
+    height: 30rem;
     margin-bottom: 1rem;
     border-radius: 10px;
 }
