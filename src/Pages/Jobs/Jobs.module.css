@@ -40,10 +40,10 @@
     /* height: 50rem; */
     min-height: 10rem;
     width: 36rem;
-    background-color: rgb(225, 220, 220);
+    background-color: rgb(245, 243, 239);
     margin-bottom: 2rem;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(30, 32, 171, 0.216)
+    box-shadow: 0 0 7px rgba(30, 32, 171, 0.216)
 }
 .profileImage{
     width: 4rem;

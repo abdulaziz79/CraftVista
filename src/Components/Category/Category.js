@@ -1,67 +1,33 @@
 import React from 'react'
 import Styles from "./Category.module.css"
-import image from "../../assets/images/spiderman.png"
+import image from "../../assets/images/background.jpg"
+import imagee from "../../assets/images/jobs.png"
+import {Link} from "react-router-dom"
 
-const categs =[
-    {
-        id:1,
-        title:"plamber",
-        image:"https://w7.pngwing.com/pngs/895/199/png-transparent-spider-man-heroes-download-with-transparent-background-free-thumbnail.png"
-    },
-    {
-        id:1,
-        title:"plamber",
-        image:"https://w7.pngwing.com/pngs/895/199/png-transparent-spider-man-heroes-download-with-transparent-background-free-thumbnail.png"
-    },
-    {
-        id:1,
-        title:"plamber",
-        image:"https://w7.pngwing.com/pngs/895/199/png-transparent-spider-man-heroes-download-with-transparent-background-free-thumbnail.png"
-    },
-    {
-        id:1,
-        title:"plamber",
-        image:"https://w7.pngwing.com/pngs/895/199/png-transparent-spider-man-heroes-download-with-transparent-background-free-thumbnail.png"
-    },
-    {
-        id:1,
-        title:"plamber",
-        image:"https://w7.pngwing.com/pngs/895/199/png-transparent-spider-man-heroes-download-with-transparent-background-free-thumbnail.png"
-    },
-    {
-        id:1,
-        title:"plamber",
-        image:"https://w7.pngwing.com/pngs/895/199/png-transparent-spider-man-heroes-download-with-transparent-background-free-thumbnail.png"
-    },
-    {
-        id:1,
-        title:"plamber",
-        image:"https://w7.pngwing.com/pngs/895/199/png-transparent-spider-man-heroes-download-with-transparent-background-free-thumbnail.png"
-    },
-    {
-        id:1,
-        title:"plamber",
-        image:"https://w7.pngwing.com/pngs/895/199/png-transparent-spider-man-heroes-download-with-transparent-background-free-thumbnail.png"
-    },
-    {
-        id:1,
-        title:"plamber",
-        image:"https://w7.pngwing.com/pngs/895/199/png-transparent-spider-man-heroes-download-with-transparent-background-free-thumbnail.png"
-    },
-
-]
 
 const Category = () => {
   return (
     <div className={Styles.container}>
-        <div className={Styles.wrapper}>
-        {categs.map((categ)=>(
-            <div className={Styles.categ} key={categ.id}>
-                <img src={categ.image} className={Styles.img}></img>
-                <h3 className={Styles.h3}>{categ.title}</h3>
+        <div>
+            <p className={Styles.p}>Modern <br />Solutions for<br /> Local Services</p>
+        </div>
+        <div>
+            <p className={Styles.otherP}>Your Job Hub, Customized for You.</p>
+        </div>
+        <div className={Styles.bottom}>
+            <div className={Styles.left}>
+                <img src={image} className={Styles.img}></img>
+                <img src={imagee} className={Styles.imgg}></img>
             </div>
-        ))}
-      </div>
+            <div className={Styles.right}>
+                <div>
+                <p className={Styles.pRight}>Squarespace Creations</p>
+                <p className={Styles.rightP}>User-Inspired Website Collection.</p>
+                <Link to="/jobs"><button className={Styles.btn}>VIEW MORE</button></Link>
+                </div>
+            </div>
+        </div>
+
     </div>
   )
 }

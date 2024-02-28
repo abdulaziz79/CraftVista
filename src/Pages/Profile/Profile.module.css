@@ -95,10 +95,10 @@
     max-height: 50rem;
     /* height: 50rem; */
     max-width: 56rem;
-    background-color: rgb(225, 220, 220);
+    background-color: rgb(245, 243, 239);
     margin-bottom: 2rem;
     border-radius: 20px;
-    box-shadow: 0 0 20px rgba(30, 32, 171, 0.117)
+    box-shadow: 0 0 7px rgba(30, 32, 171, 0.117)
 }
 .postProfile{
     width: 4rem;
@@ -177,6 +177,9 @@
         display: flex;
         gap: 1rem;
       }
-      .rating{
-
-      }
+.noPost{
+    font-size: 50px;
+    /* background-color: rgb(7, 31, 52); */
+    font-weight: 600;
+    color: rgb(7, 31, 52);
+}

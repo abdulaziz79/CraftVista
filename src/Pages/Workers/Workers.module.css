@@ -13,7 +13,7 @@
     margin-left: 1rem;
 }
 .left{
-    position: relative;
+    position: fixed;
     width: 32rem;
     height: 98vh;
     display: flex;
@@ -25,11 +25,12 @@
 .right{
     /* margin-top: 8rem; */
     width: calc(100vw - 30rem);
+    margin-left: 33rem;
 }
 .bottomRight{
-    height: 85vh;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
+    height: 100%;
+    /* overflow-y: scroll; */
+    /* scroll-behavior: smooth; */
     /* border: 1px solid red; */
 }
 .topLeft{
@@ -102,6 +103,7 @@
     }
     .right{
         width: 100%;
+        margin-left: 2rem;
     }
     .nav{
         gap: 0.1rem;

@@ -15,6 +15,7 @@ import DashPosts from '../Pages/DashPosts/DashPosts';
 import Signup from '../Pages/Signup/Signup';
 import Unauthorized from '../Pages/Unauthorized/Unauthorized';
 import Overview from '../Pages/Overview/Overview';
+import ScrollToTop from '../Components/Scroll';
 
 
 const Router = () => {
@@ -22,6 +23,7 @@ const Router = () => {
   return (
     <div>
         <BrowserRouter>
+        <ScrollToTop />
         <Routes>
             <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />

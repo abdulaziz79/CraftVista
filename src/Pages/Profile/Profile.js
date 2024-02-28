@@ -172,7 +172,7 @@ console.log("you have to registe")    }
         )
 }
        
-        {dataa&& dataa.length>0 && dataa.map((item,index)=>(
+        {dataa&& dataa.length>0 ? (dataa.map((item,index)=>(
         <div className={Styles.post} key={index}>
           <div className={Styles.postTop}>
           {workerData && workerData.image ? <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.postProfile}></img> 
@@ -205,7 +205,7 @@ console.log("you have to registe")    }
            {item.image && <img src={`${process.env.REACT_APP_PATH}/${item.image}`} className={Styles.postImage}></img>}
             
         </div>
-        ))}
+        ))):(<p className={Styles.noPost}>No Posts Yet</p>)}
         </div>
         <div className={Styles.bottomRight}>
    

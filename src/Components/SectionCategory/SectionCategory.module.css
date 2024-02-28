@@ -6,7 +6,9 @@
     height: 100vh;
     /* border: 1px solid red; */
 }
-
+.card{
+    border-right: 1px solid white;
+}
 .cards {
     display: grid;
     grid-auto-flow: column;
@@ -37,7 +39,7 @@
     margin-top: 7rem;
     letter-spacing: 2px;
     -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-color: rgb(255, 255, 255);
 }
 
 .img {
@@ -86,7 +88,7 @@
     position: absolute;
     bottom: 65%;
     left: 8%;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 35px;
     font-weight: 400;
     z-index: 10;
