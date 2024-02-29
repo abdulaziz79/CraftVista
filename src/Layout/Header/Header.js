@@ -52,7 +52,7 @@ const Header = () => {
       {/* sidbar */}
       <Sidebar />
       <div className={Styles.wrapper}>
-        <span className={Styles.span}>whatever</span>
+        <span className={Styles.span}>CraftVista</span>
         <div className={Styles.profile}>{getPageName()}</div>
         {user && user.role!=="admin"? (
           <button onClick={handleLogout}> logout </button>

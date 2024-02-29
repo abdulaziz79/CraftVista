@@ -1,16 +1,19 @@
 .p{
   font-size: 180px;
   /* margin-top: 4rem; */
-  margin-left: 2rem;
+  margin-left: 3rem;
   padding-top: 4rem;
+  color: rgb(5, 14, 23);
   line-height: 160px;
 }
 .container{
   background-color: rgb(234, 234, 234);
 }
 .otherP{
-  margin-left: 2rem;
+  margin-left: 3.3rem;
   margin-top: 6rem;
+  color: rgb(5, 14, 23);
+
   font-size: 45px;
 }
 .bottom{
@@ -94,4 +97,13 @@
   transform: translateY(4px);
   transition-duration: .3s;
   color: black;
+}
+.heroBackgrd {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 31, 65, 0.451); 
 }

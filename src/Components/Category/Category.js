@@ -16,6 +16,8 @@ const Category = () => {
         </div>
         <div className={Styles.bottom}>
             <div className={Styles.left}>
+            <div className={Styles.heroBackgrd}></div>
+
                 <img src={image} className={Styles.img}></img>
                 <img src={imagee} className={Styles.imgg}></img>
             </div>

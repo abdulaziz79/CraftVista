@@ -10,7 +10,7 @@
 }
 .bg{
     position: fixed;
-    top: -9px;
+    top: -6px;
     right: -1px;
     height: 100vh;
     bottom: 0;
@@ -23,8 +23,11 @@
     height: 50px;
     border-radius: 50%;
     position: fixed;
-    top: 17px;
-    right:  9px;
+    top: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right:  23px;
     z-index: 1001;
     background-color: transparent;
     border: none;

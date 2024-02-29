@@ -131,12 +131,6 @@ useEffect(()=>{
 fetchFilter()
 },[filters])
 
-  // const handleCategoryChange = (event) => {
-  //   setSelectedCategory(event.target.value);
-  // };
-  // const handleLocationChange = (event) => {
-  //   setSelectedLocation(event.target.value);
-  // };
   const fetchInitialPosts = async () => {
     setLoading(true);
     setTimeout(async() => {
@@ -254,7 +248,7 @@ fetchFilter()
       <div className={`${Styles.container} ${scrolled ? Styles.scrolled : ''}`}>
         <div className={Styles.top}>
           <div className={Styles.topBottom}>
-          <button className={Styles.btn}><ListIcon sx={{marginRight:"2rem", height:"2.5rem", width:"2.5rem"}} /> All</button>
+          <button className={Styles.btn}><ListIcon sx={{marginRight:"2rem", height:"2.5rem", width:"2.5rem"}} onClick={(()=>setFilter(''))} /> All</button>
           <select name="category" className={Styles.location} value={selectedCategory} onChange={handleChange} >
                   <option value=""><LocationCityIcon /> Select a category</option>
                   {categories.map(category => (

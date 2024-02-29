@@ -8,12 +8,12 @@
     padding: 20px;
     background-image: linear-gradient(to bottom right, #130a2eac, rgba(13, 45, 45, 0.88));
     backdrop-filter: blur(12px);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.278); 
+    /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.278);  */
      border: 1px solid #ccc;
     border-radius: 5px;
     z-index: 2;
     border-radius: 30px;
-    height: 50rem;
+    height: 45rem;
     gap:2rem;
     padding: 2rem;
     border: none;

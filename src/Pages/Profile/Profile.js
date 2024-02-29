@@ -26,6 +26,7 @@ const Profile = () => {
   const [mine,setMine]=useState(false)
   const [anchorEl, setAnchorEl] = useState(null);
   const [value, setValue] = useState(0);
+  const [isLoading , setIsloading]=useState(true)
   const [formData, setFormData] = useState({
     rater:user && user.userId,
     rated:''
@@ -65,10 +66,14 @@ console.log("you have to registe")    }
     }
     console.log(location.state)
     const fetchUser = async () => {
-      const id=location.state? location.state._id:user._id
-    const res = await axios.get(`${process.env.REACT_APP_PATH}/user/read/${id}`)
-    setWorkerData(res.data)
-
+      try {
+        const id=location.state? location.state._id:user._id
+      const res = await axios.get(`${process.env.REACT_APP_PATH}/user/read/${id}`)
+      console.log(res.data)
+        
+      } catch (error) {
+        console.log(error.message)
+      }
   }
   fetchUser()
   },[location,user, updated])
@@ -114,6 +119,7 @@ console.log("you have to registe")    }
       if(response){
       setDataa(response.data)
       console.log("dataaaaaaa",response.data)
+      // setIsloading(false)
       }
     }
     } catch (error) {
@@ -174,6 +180,8 @@ console.log("you have to registe")    }
        
         {dataa&& dataa.length>0 ? (dataa.map((item,index)=>(
         <div className={Styles.post} key={index}>
+          {console.log("data",dataa)}
+          {console.log("workerData",workerData)}
           <div className={Styles.postTop}>
           {workerData && workerData.image ? <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.postProfile}></img> 
           : <img src={img} className={Styles.postProfile}></img> }
@@ -236,6 +244,23 @@ console.log("you have to registe")    }
         />
         <span>{value}</span>
       </Box>
+      </div>
+      <div className={Styles.reviews}>
+        <p className={Styles.rev}>Reviews ^^</p>
+        <div className={Styles.comments}>
+          <div className={Styles.singleComment}>
+            <img className={Styles.commentImg} src={image}></img>
+            <p>this is the description of the comment</p>
+          </div>
+          <div className={Styles.singleComment}>
+            <img className={Styles.commentImg} src={image}></img>
+            <p>this is the description of the comment</p>
+          </div>
+          <div className={Styles.singleComment}>
+            <img className={Styles.commentImg} src={image}></img>
+            <p>this is the description of the comment</p>
+          </div>
+        </div>
       </div>
         </div>
       </div>
