@@ -70,7 +70,7 @@ const Hero = () => {
           </div>
           <motion.div className={Styles.right} >
           <div className={Styles.heroBackgrdR} ></div>
-            <motion.p className={Styles.pRight} variants={textVariantsRight} initial="initial" animate="animate"> Catch your next<br /> job <span style={{color:"white", fontWeight:"700"}}>  opportunity</span> today</motion.p>
+            <motion.p className={Styles.pRight} variants={textVariantsRight} initial="initial" animate="animate"> Catch your next<br /> job <span style={{color:"white", fontWeight:"700"}}>  opportunity</span> <br />today</motion.p>
             {/* <motion.p variants={textVariantsRight} className={Styles.textRight} initial="initial" animate="animate"> today. </motion.p> */}
            <Link to="/jobs" style={{zIndex:"10"}}><motion.button variants={textVariantsRight} initial="initial" animate="animate" className={Styles.button2}>Browse Jobs</motion.button></Link> 
           </motion.div>
