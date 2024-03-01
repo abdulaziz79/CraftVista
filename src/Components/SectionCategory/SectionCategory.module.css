@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+    height: 100%;
     /* border: 1px solid red; */
 }
 .card{
@@ -32,12 +32,14 @@
 }
 
 .title {
-    text-align: center;
+    /* text-align: center; */
     color: transparent;
-    font-size: 60px;
+    line-height: 87px;
+    font-size: 90px;
     z-index: 10;
     font-weight: 700;
     margin-top: 7rem;
+    margin-left: 2rem;
     letter-spacing: 2px;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: rgb(255, 255, 255);
@@ -127,7 +129,11 @@
     align-items: center;
 }
 
-@media screen and (max-width:389px) {
-    
+@media screen and (max-width:1122px) {
+    .title{
+        font-size: 70px;
+        margin-top: 5rem;
+        line-height: 70px;
+    }
 
 }

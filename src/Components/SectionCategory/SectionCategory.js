@@ -12,7 +12,7 @@ const items=[
 const SectionCategory = () => {
   return (
     <div className={Styles.container} >
- <h1 className={Styles.title}>CHECK OUR MOST RATED WORKERS</h1> 
+ <h1 className={Styles.title}>CHECK OUR <br />MOST RATED WORKERS</h1> 
     <div className={Styles.cards}>
     {/* <div className={Styles.imageBackgrd}></div> */}
       <div className={Styles.card}>

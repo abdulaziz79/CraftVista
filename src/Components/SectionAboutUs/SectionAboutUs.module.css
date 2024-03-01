@@ -3,6 +3,7 @@
     height: 100%;
     background-color: #ffffff;
     padding-top: 12rem;
+    position: relative;
 }
 
 .top {
@@ -87,7 +88,7 @@
 .slidingText{
     position: absolute;
     font-size: 22vh;
-    bottom: -110vh;
+    bottom: -6rem;
     height: 25rem;
     white-space: nowrap;
     width: 50%;
@@ -172,5 +173,14 @@
         font-weight: 600;
         line-height: 40px;
     }
-    
+    .slidingText{
+        position: absolute;
+        font-size: 18vh;
+        /* bottom: -110vh; */
+        bottom: -10rem;
+        height: 25rem;
+        white-space: nowrap;
+        width: 50%;
+        color: #3b3b3d29;
+    }
   }
