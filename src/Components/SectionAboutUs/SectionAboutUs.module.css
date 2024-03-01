@@ -141,3 +141,36 @@
 .btnn:hover {
     box-shadow: inset 0px 0px 25px #1479EA;
   }
+  @media screen and (max-width:930px) {
+    .container{
+        padding-top: 5rem;
+    }
+  }
+  @media screen and (max-width:630px) {
+    .container{
+        padding-top: 2rem;
+    }
+  
+    .number{
+        font-size: 50px;
+    }
+  }
+  @media screen and (max-width:490px) {
+    .container{
+        padding-top: 2rem;
+    }
+  
+    .number{
+        font-size: 50px;
+        margin: auto;
+    }
+    .righttext{
+        letter-spacing: 0px;
+        margin-left: 1rem;
+        color: rgb(24, 17, 65);
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 40px;
+    }
+    
+  }

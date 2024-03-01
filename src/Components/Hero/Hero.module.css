@@ -163,25 +163,64 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.616); 
 }
+
 @media screen and (max-width:1200px) {
    .p{
     font-size: 50px;
     line-height: 50px;
  
    }
+   .span{
+    font-size: 50px;
+    margin-top: -1rem;
+}
    .pRight{
     font-size: 50px;
     line-height: 50px;
    }
 }
+@media screen and (max-width:750px) {
+   .container{
+    flex-direction: column;
+   }
+   .left{
+    height: 50vh;
+    width: 100%;
+    position: relative;
+   }
+   .right{
+    height: 50vh;
+    position: relative;
+    width: 102%;
+   }
+   .heroBackgrd::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    background: rgba(12, 31, 65, 0.679); 
+}
+.heroBackgrdR{
+    content: "";
+    position: absolute;
+    /* top: 0; */
+    /* right: 0; */
+    bottom: 0;
+    width: 100%;
+    height: 50vh;
+    background: rgba(0, 0, 0, 0.616); 
+}
+ }
 @media screen and (max-width:389px) {
     .p{
-     font-size: 20px;
+     font-size: 30px;
      line-height: 30px;
 
     }
     .pRight{
-     font-size: 20px;
+     font-size: 30px;
      line-height: 30px;
     }
  }
