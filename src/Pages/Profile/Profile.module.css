@@ -98,7 +98,7 @@
     background-color: rgb(245, 243, 239);
     margin-bottom: 2rem;
     border-radius: 20px;
-    box-shadow: 0 0 7px rgba(30, 32, 171, 0.117)
+    /* box-shadow: 0 0 7px rgba(30, 32, 171, 0.117) */
 }
 .postProfile{
     width: 4rem;
@@ -185,16 +185,19 @@
 }
 .reviews{
     height:fit-content;
-    margin-top: 0.5rem;
-    background-color: rgb(231, 233, 233);
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+    margin-top: 0.6rem;
+    background-color: rgb(245, 243, 239);
+    border-radius: 20px;
+    padding-bottom: 3rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 
 }
 .rev{
     text-align: center;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     font-size: 24px;
+    padding-top: 2rem;
     color: rgb(48, 48, 134);
     font-weight: 600;
 }
@@ -204,21 +207,32 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    border-top-right-radius: 20px;
-    border-top-left-radius: 20px;
+  border-radius: 20px;
 
 }
 .singleComment{
-    height: 5rem;
+    height: fit-content;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    margin-top: 1rem;
+    /* align-items: center; */
     gap: 1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.17);
+    border-bottom: 1px solid rgb(245, 243, 239);
 }
 .commentImg{
     width: 60px;
     height: 60px;
     object-fit: cover;
     border-radius: 50%;
+}
+.namee{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1rem;
+}
+.text{
+    margin-left: 1rem;
 }

@@ -249,16 +249,28 @@ console.log("you have to registe")    }
         <p className={Styles.rev}>Reviews ^^</p>
         <div className={Styles.comments}>
           <div className={Styles.singleComment}>
+            <div className={Styles.namee}>
             <img className={Styles.commentImg} src={image}></img>
-            <p>this is the description of the comment</p>
+            <p>User Name</p>
+            </div>
+            <p className={Styles.text}>here we can put the comment whateve here we can put the comment whatever here we can put the comment whateverhere we can put the comment whateverr</p>
+
           </div>
           <div className={Styles.singleComment}>
+            <div className={Styles.namee}>
             <img className={Styles.commentImg} src={image}></img>
-            <p>this is the description of the comment</p>
+            <p>User name</p>
+            </div>
+            <p className={Styles.text}> here we can put the comment whatever</p>
+
           </div>
           <div className={Styles.singleComment}>
+            <div className={Styles.namee}>
             <img className={Styles.commentImg} src={image}></img>
-            <p>this is the description of the comment</p>
+            <p>User name</p>
+            </div>
+            <p className={Styles.text}>here we can put the comment whatever</p>
+
           </div>
         </div>
       </div>

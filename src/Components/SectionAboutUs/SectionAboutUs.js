@@ -9,7 +9,7 @@ import CountUp from "react-countup"
 
 const variants = {
   initial:{
-    y: "2%",
+    // y: "2%",
     opacity:0
     
   },
@@ -43,7 +43,7 @@ const SectionCategory = () => {
     <div className={Styles.container}>
       <div className={Styles.top}>
         <div className={Styles.left}>
-         <motion.div className={Styles.leftleft} variants={variants} initial="initial" whileInView="animate">
+         <motion.div className={Styles.leftleft} variants={variants} initial="initial" animate="animate">
           <motion.div> <p className={Styles.number}><CountUp start={0} end={500} duration={2} />+</p> <p className={Styles.word}>Happy client</p> </motion.div>
           <motion.div> <p className={Styles.number}><CountUp start={0} end={500} duration={2} />+</p> <p className={Styles.word}>Happy client</p> </motion.div>
           </motion.div>
