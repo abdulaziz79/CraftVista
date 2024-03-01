@@ -39,12 +39,13 @@
     /* max-height: 50rem; */
     height: 38rem;
     /* height: 50rem; */
-    min-height: 10rem;
+    /* min-height: 36rem;
+    max-width: 36rem; */
     width: 36rem;
     background-color: rgb(245, 243, 239);
     margin-bottom: 2rem;
     border-radius: 20px;
-    box-shadow: 0 0 7px rgba(30, 32, 171, 0.216)
+    /* box-shadow: 0 0 7px rgba(30, 32, 171, 0.216) */
 }
 .profileImage{
     width: 4rem;
@@ -54,7 +55,7 @@
 }
 .postImage{
    max-height: 65%;
-    width: 34rem;
+    width: 100%;
     /* height: 70%; */
     /* position: absolute; */
     /* bottom: 12px; */
@@ -167,11 +168,41 @@
 }
 @media screen and (max-width:566px) {
     .post{
-        width: 25rem;
+        width: 100%;
+        box-shadow: 0;
+        background-color: rgb(255, 255, 255);
+        padding-left: 0%;
+        padding-right: 0%;
+        height: fit-content;
+        max-height: 40rem;
     }
-}
-@media screen and (max-width:420px) {
-    .post{
-        width: 20rem;
+    .bottom{
+        width: 100%;
+        gap: 0;
+    }
+    .postImage{
+        width: 50rem;
+        object-fit: cover;
+        height: 25rem;
+    }
+    .description{
+        line-height: 15px;
+        margin-bottom: 0.5rem;
+        margin-left: 1rem;
+    }
+    .locationn{
+        margin-left: 0.6rem;
+    }
+    .imgTime{
+        margin-left: 0.5rem;
+    }
+    .categ{
+        right: 0;
+        width: fit-content;
+        /* left: 84%; */
+        position: absolute;
+        left: auto;
+        transform: translate(0);
+        top: 1.3rem;
     }
 }

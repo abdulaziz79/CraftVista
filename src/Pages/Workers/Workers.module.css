@@ -103,7 +103,7 @@
     }
     .right{
         width: 100%;
-        margin-left: 2rem;
+        margin-left: 0;
     }
     .nav{
         gap: 0.1rem;

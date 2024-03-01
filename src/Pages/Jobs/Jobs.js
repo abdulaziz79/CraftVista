@@ -288,7 +288,7 @@ fetchFilter()
                     <p className={Styles.time}>{formatTimeSince(post.createdAt)}</p>
                   </div>
                 </div>
-                <p style={{opacity:"0.7"}}><LocationOnIcon />{post.location}</p>
+                <p className={Styles.locationn} style={{opacity:"0.7"}}><LocationOnIcon />{post.location}</p>
                 <p className={Styles.description}>{post.description}</p>
                {post.image ? ( <img src={`${process.env.REACT_APP_PATH}/${post.image}`} className={Styles.postImage} alt="Post"></img>)
               :(<img src={imagee} className={Styles.postImage}></img>) 

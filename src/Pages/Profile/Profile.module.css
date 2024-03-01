@@ -296,7 +296,7 @@
     border: 3px solid white;
 }
 .bottom{
-    width: 939999%;
+    width: 100%;
 }
 .userInfo{
     text-align: center;
@@ -306,6 +306,18 @@
 }
 .post{
     width: 100%;
+    border-radius: 0;
+    background-color: white;
+    padding: 0%
+}
+.postImage{
+    border-radius: 0%;
+}
+.desc{
+    margin-left: 0.5rem;
+}
+.location{
+    margin-left: 0.5rem;
 }
 }
 @media screen and (max-width:555px) {

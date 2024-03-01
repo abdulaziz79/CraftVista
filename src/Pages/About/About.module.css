@@ -85,7 +85,8 @@
     
 }
 .h2{
-    font-size: 30px;text-align: center;
+    font-size: 30px;
+    text-align: center;
     font-weight: 500;
     margin-bottom: 1rem;
     color: lightgray;
@@ -113,3 +114,44 @@
     background: rgba(12, 31, 65, 0.25); 
     border-radius: 10%;
 }
+@media screen and (max-width:940px) {
+   .title{
+        font-size: 90px;
+    }
+    .h1{
+        font-size: 50px;
+        line-height: 50px;
+    }
+    .bottomRight{
+        width: 70%;
+    }
+  }
+  @media screen and (max-width:620px) {
+    .title{
+         font-size: 70px;
+     }
+     .h1{
+        font-size: 40px;
+     }
+     .bottomRight{
+        width: 100%;
+    }
+
+     .h2{
+        font-size: 24px;
+     }.p{
+        font-size: 14px;
+        line-height: 20px;
+     }
+   }
+   @media screen and (max-width:372px) {
+    .title{
+         font-size: 60px;
+   
+     }
+ 
+   }
+   @media screen and (max-width:366px) {
+
+ 
+   }

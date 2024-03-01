@@ -77,6 +77,8 @@
   .searchInput{
     height: 3rem;
     margin-bottom: 1rem;
+    min-width: 7rem;
+    max-width: 14rem;
     /* margin-top: 0.6rem; */
     border: 1px solid gray;
     padding: 1rem;
