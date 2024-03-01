@@ -91,7 +91,8 @@
     bottom: -6rem;
     height: 25rem;
     white-space: nowrap;
-    width: 50%;
+    overflow:inherit;
+    width: 100%;
     color: #3b3b3d29;
 }
 /* ///////////////////////////////// */
@@ -178,6 +179,7 @@
         font-size: 18vh;
         /* bottom: -110vh; */
         bottom: -10rem;
+        overflow: hidden;
         height: 25rem;
         white-space: nowrap;
         width: 50%;

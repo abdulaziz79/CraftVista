@@ -19,6 +19,7 @@
     align-items: flex-end;
     justify-content: center;
 }
+
 .bottom{
     flex: 1;
     width: 97%;
@@ -92,7 +93,7 @@
     /* justify-content:space-between; */
     padding-left: 1rem;
     /* padding-right: 2rem; */
-    width: 14rem;
+    width: 14.06rem;
     height: 100%;
     font-size: 20px;
     font-weight: 600;
@@ -121,6 +122,7 @@
     font-size: 18px;
     font-weight: 600;
     width: 14rem;
+    border-left: 1px solid white;
     height: 100%; 
 }
 .categ{
@@ -136,6 +138,27 @@
     height: 3rem;
     padding: 10px 10px 5px 10px;
 }
+
+@media screen and (max-width:1134px) {
+   .bottom{
+    margin-top: 4rem;
+   }
+   .location{
+    border: none;
+    border-bottom: 0.5px solid white;
+
+   }
+   .btn{
+    border: none;
+    border-bottom: 0.5px solid white;
+
+   }
+}
+@media screen and (max-width:761px) {
+    .bottom{
+     margin-top: 7rem;
+    }
+ }
 @media screen and (max-width:620px) {
     .post{
         width: 30rem;

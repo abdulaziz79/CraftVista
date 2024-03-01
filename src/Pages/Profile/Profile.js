@@ -166,7 +166,7 @@ console.log("you have to registe")    }
       <div className={Styles.bottom}>
         <div className={Styles.bottomLeft}>
         { workerData !==null  && (
-          <>
+          <div className={Styles.userInfo}>
            <p className={Styles.name}>{workerData.name}</p>
         <p className={Styles.email}>{workerData.email}</p>
         <div className={Styles.info}>
@@ -174,14 +174,12 @@ console.log("you have to registe")    }
             <p className={Styles.location}><CalendarMonthIcon />- Joined April 2022</p>
             <p className={Styles.location}> <GradeIcon sx={{color:"gold"}} /> {workerData.averageRate} ({workerData.number})</p>
         </div>
-       </>
+       </div>
         )
 }
        
         {dataa&& dataa.length>0 ? (dataa.map((item,index)=>(
         <div className={Styles.post} key={index}>
-          {console.log("data",dataa)}
-          {console.log("workerData",workerData)}
           <div className={Styles.postTop}>
           {workerData && workerData.image ? <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.postProfile}></img> 
           : <img src={img} className={Styles.postProfile}></img> }
