@@ -14,7 +14,7 @@
     transition: background-color 0.3s ease;
 }
 .wrapper{
-    max-width: 1566px;
+    width: 100%;
     margin: auto;
     display: flex;
     align-items: center;
@@ -24,7 +24,16 @@
 .span{
     font-weight: bold;
     font-size: 20px;
+    margin-left: 6rem;
+
     /* font-family:; */
+}
+.log{
+    margin-right: 8rem;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .profile{
     color: lightgray;
@@ -32,4 +41,16 @@
     font-weight: 700;
     letter-spacing: 2px;
     border-bottom: 2px solid orange;
+}
+@media screen and (max-width:550px) {
+    .span{
+        margin: 0;
+    }
+    .log{
+        margin-right: 4.3rem;
+    }
+    .spann{
+        display: none;
+    }
+ 
 }

@@ -43,3 +43,12 @@
     justify-content: center;
     gap:20px
 }
+
+@media screen and (max-width:550px) {
+ .btn{
+    right: 11px;
+ }
+ .bg{
+    right: -13px;
+ }
+}

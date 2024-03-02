@@ -34,7 +34,6 @@ const Links = ({handleClose}) => {
         "HomePage",
         "workers",
         "Jobs",
-        "Services",
         "About",
        
     ]

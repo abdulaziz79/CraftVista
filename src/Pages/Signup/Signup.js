@@ -150,7 +150,7 @@ const Signup = () => {
               style: { color: 'white' }
             }}
           />
-          <br />
+          {/* <br /> */}
           <TextField
             label="Email"
             className={Styles.inpt}
@@ -172,7 +172,7 @@ const Signup = () => {
             }}
             
           />
-          <br />
+          {/* <br /> */}
           <TextField
             label="Phone Number"
             className={Styles.inpt}
@@ -192,7 +192,7 @@ const Signup = () => {
               style: { color: 'white' }
             }}
           />
-          <br />
+          {/* <br /> */}
           <div className={Styles.imagee}>
             {/* <label className={Styles.label}>Image:</label> */}
             <input
@@ -202,7 +202,7 @@ const Signup = () => {
               className={Styles.inputField}
             />
           </div>
-          <br />
+          {/* <br /> */}
           <TextField
             label="Location"
             className={Styles.inpt}
@@ -226,7 +226,7 @@ const Signup = () => {
             <MenuItem value="Beirut">Beirut</MenuItem>
             <MenuItem value="Tripoli">Tripoli</MenuItem>
           </TextField>
-          <br />
+          {/* <br /> */}
           <TextField
             label="Password"
             className={Styles.inpt}
@@ -246,7 +246,7 @@ const Signup = () => {
               style: { color: 'white' }
             }}
           />
-          <br />
+          {/* <br /> */}
           <label>
             <input
               type="checkbox"
@@ -256,7 +256,7 @@ const Signup = () => {
             />{' '}
             I am a worker 
           </label>
-          <br />
+          {/* <br /> */}
           {showCategoryDropdown && (
             <TextField
               label="Select Category"

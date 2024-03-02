@@ -19,7 +19,7 @@
   align-items: center;
   gap: 1rem;
   width: 30%;
-  height: 92vh;
+  height: 80vh;
   padding: 20px;
   /* border: 1px solid #ffffff; */
   border-radius: 30px;
@@ -66,17 +66,24 @@
     width: 90%;
   }
   .btn {
-    background-color: rgb(12, 113, 185);
+    background-color: rgb(0, 0, 0);
     color: lightgray;
     padding: 10px 15px;
     border: 1px solid transparent;
-    /* border-radius: 5px; */
+    border-radius: 5px;
     cursor: pointer;
-    width: 95%;
+    width: 100%;
     font-size: 17px;
     /* margin-top: 1rem; */
     font-weight: 600;
     /* letter-spacing: 1px; */
+  }
+  .btn:hover{
+    background-color: rgb(56, 53, 53);
+  }
+
+  .inpt{
+    margin-bottom: 1rem;
   }
   .googleBtn{
     background-color: lightgray;
@@ -136,8 +143,10 @@
   }
   @media screen and (max-width:471px) {
     .container{
-      width: 95%;
-      gap: 0
+      width: 90%;
+      gap: 0;
+      margin: 0;
+      height: 100%;
     }
     .h2 {
       font-size: 40px;
@@ -148,4 +157,13 @@
       width: 91%;
       letter-spacing: 6px;
     }
+    .body{
+  
+      justify-content: center;
+
+  }
+  .form{
+    gap: 0;
+    height: 100vh;
+  }
   }

@@ -6,6 +6,9 @@ import { UserContext } from '../../UserContext/UserContext'
 import { toast } from 'react-toastify'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import Sidebar from '../Sidebar/Sidebar'
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import LoginIcon from '@mui/icons-material/Login';
+
 
 const Header = () => {
   const {user, setUser} = useContext(UserContext)
@@ -55,7 +58,7 @@ const Header = () => {
         <span className={Styles.span}>CraftVista</span>
         <div className={Styles.profile}>{getPageName()}</div>
         {user && user.role!=="admin"? (
-          <button onClick={handleLogout}> logout </button>
+          <button onClick={handleLogout} className={Styles.log}><span className={Styles.spann}> logout </span><ExitToAppIcon /> </button>
         ) : user && user.role==="admin"?(
           <Link to="/dashboard">
             <p style={{ cursor: "pointer", color: "lightgray" }}>dashboard</p>
@@ -63,7 +66,7 @@ const Header = () => {
         )
       :(
         <Link to="/signup">
-        <p style={{ cursor: "pointer", color: "lightgray" }}>signup</p>
+        <p style={{ cursor: "pointer", color: "lightgray" }} className={Styles.log}><span className={Styles.spann}>signup</span> <LoginIcon /></p>
       </Link>
     )
       
