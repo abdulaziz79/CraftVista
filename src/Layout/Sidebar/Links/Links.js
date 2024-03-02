@@ -31,7 +31,7 @@ const itemVariants = {
 const Links = ({handleClose}) => {
     const {user } =useContext(UserContext)
     const pages=[
-        "HomePage",
+        "Home",
         "workers",
         "Jobs",
         "About",
@@ -45,7 +45,7 @@ const Links = ({handleClose}) => {
     <motion.div className={Styles.linkss} variants={variants}>
     {pages.map(page=>(
         <motion.div variants={itemVariants} key={page}>
-            {page === "HomePage" ? (
+            {page === "Home" ? (
                 <Link to="/" style={{fontSize:"36px", color:"black",fontWeight:"400"}} onClick={()=>handleClose()}>
                     {page}
                 </Link>

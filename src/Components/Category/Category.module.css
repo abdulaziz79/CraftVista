@@ -151,10 +151,11 @@
   .p{
    font-size: 60px;
    line-height: 60px;
+   margin-left: 1rem;
 
   }
   .otherP{
-    margin-left: 3.3rem;
+    margin-left: 1rem;
     margin-top: 1rem;
     color: rgb(5, 14, 23);
   
