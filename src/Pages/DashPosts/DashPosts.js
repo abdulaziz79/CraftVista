@@ -109,12 +109,12 @@ export default function DashPosts() {
   ];
 
   return (
-    <div>
+    < div className={styles.postsHolder}>
     {/* <Helmet>
     <title>Services</title>
     <meta name="Services" content="Services table" />
   </Helmet> */}
-    <main style={{ width: "90%", float: "left", margin: "auto", height: "650px", marginBottom: "7rem" }}>
+    <main style={{ width: "90%", float: "left", margin: "auto", height: "650px", marginBottom: "7rem" }} className={styles.postsHolder}>
       <h1 style={{ fontSize: 30, fontWeight: "bold", marginBottom: 30 }}> Services </h1>
       <section>
       <button

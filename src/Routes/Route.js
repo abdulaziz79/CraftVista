@@ -16,6 +16,7 @@ import Signup from '../Pages/Signup/Signup';
 import Unauthorized from '../Pages/Unauthorized/Unauthorized';
 import Overview from '../Pages/Overview/Overview';
 import ScrollToTop from '../Components/Scroll';
+import DashCategories from '../Pages/DashCategories/DashCategories';
 
 
 const Router = () => {
@@ -58,12 +59,11 @@ const Router = () => {
             }>
               <Route path='/dashboard'  element={<Dashboard />} >
                 <Route path='overview' index element={<Overview />} />
-                <Route path='workers' index element={<Overview />} />
-                <Route path='users' index element={<Overview />} />
-                <Route path='posts' index element={<DashPosts />} />
-                <Route path='categories' index element={<Overview />} />
+                <Route path='workers'  element={<DashPosts />} />
+                <Route path='users'  element={<Overview />} />
+                <Route path='posts'  element={<DashPosts />} />
+                <Route path='categories'  element={<DashCategories />} />
               </Route>
-
             </Route>
         </Routes>
         </BrowserRouter>

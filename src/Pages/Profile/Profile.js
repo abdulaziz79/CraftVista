@@ -15,6 +15,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import Rating from '@mui/material/Rating';
 import Box from '@mui/material/Box';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import CloseIcon from '@mui/icons-material/Close';
+
 
 const Profile = () => {
   const location=useLocation()
@@ -151,14 +153,28 @@ console.log("you have to registe")    }
     }
   }
 
+  const [model, setModel] = useState(false)
+    const [tempimgSrc, setTempImg] = useState('')
+    // const getImg = () => {
+    //     // setTempImg(story.images[index])
+    //     setModel(true)
+    // }
+
   return (
     <div className={Styles.container}>
       {checkUser ? (<div>loading...</div>) :(
     <>   
+    <section className={`${model ? Styles.modelOpen : Styles.modelClose} ${Styles.model}`}>
+                <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.showIMg} />
+                <CloseIcon  sx={{color:"white"}} onClick={() => setModel(false)} className={Styles.closeModel}/> 
+                {/* <img src={<CloseIcon/>} className={Styles.closeModel} onClick={() => setModel(false)}></img> */}
+       </section>
+
       <div className={Styles.top}>
+      
       <div className={Styles.heroBackgrd}></div>
 
-        { workerData&& workerData.image ?( <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.img}></img>)
+        { workerData&& workerData.image ?( <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.img} onClick={()=>setModel(true)}></img>)
   : (<img src={img} className={Styles.img} alt='profile picture' />) }
              {mine&& user.role !=="admin" &&(<button onClick={()=>setAddPost(prev => !prev) } className={Styles.btnAdd}> +</button>)} 
 

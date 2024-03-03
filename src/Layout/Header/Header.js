@@ -8,6 +8,8 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 import Sidebar from '../Sidebar/Sidebar'
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import LoginIcon from '@mui/icons-material/Login';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+
 
 
 const Header = () => {
@@ -58,10 +60,10 @@ const Header = () => {
         <span className={Styles.span}>CraftVista</span>
         <div className={Styles.profile}>{getPageName()}</div>
         {user && user.role!=="admin"? (
-          <button onClick={handleLogout} className={Styles.log}><span className={Styles.spann}> logout </span><ExitToAppIcon /> </button>
+          <button onClick={handleLogout} className={Styles.log}><span className={Styles.spann} > logout </span><ExitToAppIcon /> </button>
         ) : user && user.role==="admin"?(
           <Link to="/dashboard">
-            <p style={{ cursor: "pointer", color: "lightgray" }}>dashboard</p>
+            <p style={{ cursor: "pointer", color: "lightgray" }} className={Styles.log} ><span className={Styles.spann}>dashboard</span><DashboardIcon /></p>
           </Link>
         )
       :(

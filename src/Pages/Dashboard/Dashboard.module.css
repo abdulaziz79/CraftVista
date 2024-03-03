@@ -1,0 +1,22 @@
+.outletClose{
+    position: absolute;
+    width: calc(100% - 65px); /* Adjusted width calculation */
+    left: 65px;
+    top: 70px;
+    height: calc(100% - 70px); /* Adjusted height calculation */
+    /* border: 2px solid red; */
+    padding: 3em;
+    z-index: 3;
+    transition: all .3s;
+
+}
+.outletOpen{
+    position: absolute;
+    width: calc(100% - 240px); /* Adjusted width calculation */
+    left: 240px;
+    top: 70px;
+    height: calc(100% - 70px); /* Adjusted height calculation */
+    padding: 3em;
+    z-index: 3;
+    transition: all .3s;
+}

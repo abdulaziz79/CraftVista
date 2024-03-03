@@ -44,6 +44,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "react-toastify/dist/ReactToastify.minimal.css";
 import axios from 'axios';
 import "./DashSidebar.css"
+import { LayoutContext } from '../../../UserContext/LayoutContext';
 
 
 const drawerWidth = 240;
@@ -126,12 +127,14 @@ const menuItems = [
 ];
 
 export default function DashSidebar() {
+  const {open,setOpen}=useContext(LayoutContext)
+
   const navigate = useNavigate();
   const location = useLocation();
   const { user, setUser } =useContext(UserContext)
   
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
   
 //   const activeMenuItem = menuItems.find((menuItem) =>
 //   location.pathname.toLowerCase().includes(menuItem.text.toLowerCase())
@@ -267,7 +270,7 @@ export default function DashSidebar() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
    {/* <Productstable/> */}
    {/* <AddEditProduct/> */}
-   <DashPosts />
+   {/* <DashPosts /> */}
       </Box>
     <DrawerHeader />
     </Box>
