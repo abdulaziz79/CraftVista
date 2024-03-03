@@ -96,6 +96,26 @@
     width: 100%;
     height: 80%;
 }
+@media screen and (max-width:1255px) {
+.bottomRight{
+    margin-top: 3rem;
+}
+}
+@media screen and (max-width:1028px) {
+    .bottomRight{
+        margin-top: 6rem;
+        
+    }
+    }
+    @media screen and (max-width:928px) {
+        .left{
+            width: 28rem;
+        }
+        .right{
+            margin-left: 29rem;
+        }
+        }
+
 @media screen and (max-width:800px) {
     .left{
         display: none;

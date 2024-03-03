@@ -21,7 +21,8 @@ export default function DashCategories() {
       const response = await axios.get(`${process.env.REACT_APP_PATH}/category/read`)
       if(response){
         console.log(response.data)
-        setCategories(response.data)
+        setRows(response.data)
+        
       }
     } catch (error) {
       console.log(error.message)
@@ -39,9 +40,9 @@ export default function DashCategories() {
 
   const handleDeleteClick = async (postID) => {
     try {
-      const response=await axios.delete(`${process.env.REACT_APP_PATH}/post/delete/${postID}`);
+      const response=await axios.delete(`${process.env.REACT_APP_PATH}/category/delete/${postID}`);
       if(response){
-        // console.log("deleted")
+        console.log("deleted")
       }
     //   fetchServices();
     } catch (error) {
@@ -58,27 +59,29 @@ export default function DashCategories() {
   };
   const columns = [
     { field: "_id", headerName: "ID", flex: 1 },
-    { field: "userId", headerName: "Email", flex: 1 ,  renderCell: (params) => (
-        <span>{params.row.userId.email}</span>
-      ),},
-    { 
-        field: "description", 
-        headerName: "Description", 
-        flex: 1,
-        renderCell: (params) => (
-          <div style={{ overflow: 'auto' }}>
-            {params.value}
-          </div>
-        ),
-      },    { field: "location", headerName: "Location", flex: 1 },
-    { 
-        field: "categoryId", 
-        headerName: "Category", 
-        flex: 1,
-        renderCell: (params) => (
-          <span>{params.row.categoryId.title}</span>
-        ),
-      },
+    { field: "title", headerName: "title", flex: 1 },
+
+    // { field: "userId", headerName: "Email", flex: 1 ,  renderCell: (params) => (
+    //     <span>{params.row.userId.email}</span>
+    //   ),},
+    // { 
+    //     field: "description", 
+    //     headerName: "Description", 
+    //     flex: 1,
+    //     renderCell: (params) => (
+    //       <div style={{ overflow: 'auto' }}>
+    //         {params.value}
+    //       </div>
+    //     ),
+    //   },    { field: "location", headerName: "Location", flex: 1 },
+    // { 
+    //     field: "categoryId", 
+    //     headerName: "Category", 
+    //     flex: 1,
+    //     renderCell: (params) => (
+    //       <span>{params.row.categoryId.title}</span>
+    //     ),
+    //   },
     {
       field: "image",
       headerName: "Image",

@@ -39,7 +39,7 @@
     color: lightgray;
     font-size: 30px;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 0px;
     border-bottom: 2px solid orange;
 }
 @media screen and (max-width:550px) {

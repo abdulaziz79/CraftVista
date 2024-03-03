@@ -7,12 +7,14 @@ import DeleteIcon from "@mui/icons-material/Delete";
 // import ServiceAddForm from "./AddServiceForm";
 import styles from "./DashPosts.module.css";
 // import { Helmet } from "react-helmet-async";
+import image from "../../assets/images/profile.png"
 import "./DashPosts.css"
 
 export default function DashPosts() {
   const [rows, setRows] = useState([]);
   const [selectedService, setSelectedService] = useState(null);
   const [isAddFormOpen, setIsAddFormOpen] = useState(false);
+  const [loading, setLoading]= useState(true)
   const [isServiceFormOpen, setIsServiceFormOpen] = useState(false);
 
     const fetchServices = async () => {
@@ -20,6 +22,7 @@ export default function DashPosts() {
         const response = await axios.get(`${process.env.REACT_APP_PATH}/post/readPosts`);
         if(response){
             setRows(response.data);
+            setLoading(false)
         }
         // console.log(response.data)
         
@@ -42,6 +45,7 @@ export default function DashPosts() {
       const response=await axios.delete(`${process.env.REACT_APP_PATH}/post/delete/${postID}`);
       if(response){
         // console.log("deleted")
+        fetchServices()
       }
     //   fetchServices();
     } catch (error) {
@@ -59,7 +63,7 @@ export default function DashPosts() {
   const columns = [
     { field: "_id", headerName: "ID", flex: 1 },
     { field: "userId", headerName: "Email", flex: 1 ,  renderCell: (params) => (
-        <span>{params.row.userId.email}</span>
+        <span>{params.row.userId && params.row.userId.email}</span>
       ),},
     { 
         field: "description", 
@@ -76,7 +80,7 @@ export default function DashPosts() {
         headerName: "Category", 
         flex: 1,
         renderCell: (params) => (
-          <span>{params.row.categoryId.title}</span>
+          <span>{params.row.categoryId && params.row.categoryId.title}</span>
         ),
       },
     {
@@ -85,9 +89,9 @@ export default function DashPosts() {
       flex: 1,
       renderCell: (params) => (
         <img
-          src={`${process.env.REACT_APP_PATH}/${params.value}`}
+          src={params.value ?`${process.env.REACT_APP_PATH}/${params.value}`:image}
           alt="Service"
-          style={{ width: 50, height: 50 }}
+          style={{ width: 50, height: 50, objectFit:"cover" }}
         />
       ),
     },
@@ -115,23 +119,9 @@ export default function DashPosts() {
     <meta name="Services" content="Services table" />
   </Helmet> */}
     <main style={{ width: "90%", float: "left", margin: "auto", height: "650px", marginBottom: "7rem" }} className={styles.postsHolder}>
-      <h1 style={{ fontSize: 30, fontWeight: "bold", marginBottom: 30 }}> Services </h1>
+      <h1 style={{ fontSize: 30, fontWeight: "bold", marginBottom: 30 }}> Posts </h1>
       <section>
-      <button
-        className={styles.btnAdd}
-        style={{
-          color: "white",
-          marginBottom: "1rem",
-          width: "7rem",
-          height: "2.5rem",
-          backgroundColor: "#C62507",
-          borderRadius: "5px",
-          fontWeight: "bold",
-        }}
-        onClick={handleAddClick}
-      >
-        Add
-      </button>
+ 
       </section>
       <section>
       <DataGrid
@@ -144,6 +134,7 @@ export default function DashPosts() {
         components={{
           Toolbar: CustomToolbar,
         }}
+        loading={loading}
         sx={{
             color: "#0a213d",
             paddingTop: "1rem",

@@ -15,7 +15,7 @@ const About = () => {
       </div>
       <div className={Styles.bottom}>
 
-      <h1 className={Styles.h1}>This is a mission <br />statement here</h1>
+      <h1 className={Styles.h1}>This is the mission <br />statement</h1>
 
       <div className={Styles.bottomRight}>
         <img src={image} className={Styles.aboutImage}></img>
@@ -24,17 +24,17 @@ const About = () => {
       </div>
       <div className={Styles.bottomLeft}>
         <div className={Styles.messages}>
-        <h1 className={Styles.h2}>this is the title here</h1>
-        <p className={Styles.p}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, </p>
+        <h1 className={Styles.h2}>Connecting Local Workers and Customers</h1>
+        <p className={Styles.p}>CraftVista serves as a bridge between local service providers, such as handymen, electricians, and plumbers, and customers seeking their expertise. Our platform simplifies the process of finding skilled workers for various tasks, promoting local businesses and enhancing convenience for users </p>
         </div>
         <div className={Styles.messages}>
-        <h1 className={Styles.h2}>this is the title here</h1>
-          <p className={Styles.p}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, </p>
+        <h1 className={Styles.h2}>Streamlining Service Discovery</h1>
+          <p className={Styles.p}>CraftVista streamlines the process of discovering skilled local service providers, offering a user-friendly platform for individuals seeking assistance with tasks ranging from home repairs to maintenance services. </p>
         </div>
 
         <div className={Styles.messages}>
-        <h1 className={Styles.h2}>this is the title here</h1>
-        <p className={Styles.p}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, </p>
+        <h1 className={Styles.h2}>Enhancing User Convenience</h1>
+        <p className={Styles.p}> CraftVista enhances user convenience by offering a centralized hub for accessing a wide range of services. With intuitive search and filtering options, users can easily find and connect with the right service providers to meet their specific needs. </p>
         </div>
 
       </div>

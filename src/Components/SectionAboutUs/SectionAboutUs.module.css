@@ -178,7 +178,7 @@
         position: absolute;
         font-size: 18vh;
         bottom: -10rem;
-   
+        /* overflow-x: scroll; */
         color: #3b3b3d29;
     }
   }
