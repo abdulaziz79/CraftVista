@@ -4,6 +4,7 @@ import axios from 'axios';
  import {UserContext} from "../../../UserContext/UserContext"
 const Addpost = ({setAddPost , fetchData}) => {
   const { user } = useContext(UserContext); // Assuming your context provides userId
+  console.log("ssssssssssssssssssssssssss",user)
 
   const [formData, setFormData] = useState({
     description: '',
@@ -53,7 +54,7 @@ console.log("addddddddddddddddddddddddd")
 
   const handleSubmit =async (e) => {
     e.preventDefault();
-  console.log("submittt")
+  // console.log("submittt")
     try {
       const response =await axios.post(`${process.env.REACT_APP_PATH}/post/create`,formData, {headers:{"Content-Type":"multipart/form-data"}})
       if(response){

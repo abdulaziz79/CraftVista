@@ -55,7 +55,9 @@ console.log("you have to registe")    }
     console.log("workerrrrrr",worker)
   
     // console.log(user)
-    if(user && (worker===null || user.userId===worker?._id)){
+    // if(user && (worker===null || user.userId===worker?._id)){
+    if(location.pathname=== "/myprofile"){
+
       console.log("minnnnnnnnnnnnnnnnneeeeeeeee")
       setMine(true)
       console.log("userrrrrrrrrrrrrrrrrrrrr",user.userId)
@@ -69,7 +71,7 @@ console.log("you have to registe")    }
     console.log(location.state)
     const fetchUser = async () => {
       try {
-        const id=location.state? location.state._id:user._id
+        const id=location.state? location.state._id:user.userId
       const res = await axios.get(`${process.env.REACT_APP_PATH}/user/read/${id}`)
       console.log(res.data)
         
@@ -116,13 +118,20 @@ console.log("you have to registe")    }
 
   const fetchData=async()=>{
     try { 
-      if (workerData && workerData._id){
-      const response = await axios.get(`${process.env.REACT_APP_PATH}/post/readPosts/${workerData._id}`)
+      let id=''
+      if(mine){
+        id=user.userId
+      }
+      else{
+        id=workerData._id
+      }
+      // if (workerData && workerData._id){
+      const response = await axios.get(`${process.env.REACT_APP_PATH}/post/readPosts/${id}`)
       if(response){
       setDataa(response.data)
       console.log("dataaaaaaa",response.data)
       // setIsloading(false)
-      }
+      // }
     }
     } catch (error) {
       console.log(error.message)
