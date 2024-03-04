@@ -16,23 +16,25 @@ import Rating from '@mui/material/Rating';
 import Box from '@mui/material/Box';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import CloseIcon from '@mui/icons-material/Close';
+import styled from '@emotion/styled';
 
 
 const Profile = () => {
+  const {user, setUser, checkUser} = useContext(UserContext)
   const location=useLocation()
   const [workerData,setWorkerData]=useState({})
   const [dataa, setDataa]= useState([])
   const [updated, setUpdated]= useState()
   const [addPost, setAddPost] = useState(false)
-  const {user, setUser, checkUser} = useContext(UserContext)
   const [mine,setMine]=useState(false)
   const [anchorEl, setAnchorEl] = useState(null);
   const [value, setValue] = useState(0);
   const [isLoading , setIsloading]=useState(true)
   const [formData, setFormData] = useState({
-    rater:user && user.userId,
-    rated:''
+    // rater:user && user.userId,
+    rated:""
   })
+  const [reviews, setReviews] = useState([]);
   // console.log(user.user)
   console.log(workerData)
 
@@ -127,12 +129,14 @@ console.log("you have to registe")    }
       }
       // if (workerData && workerData._id){
       const response = await axios.get(`${process.env.REACT_APP_PATH}/post/readPosts/${id}`)
+      
+      console.log("userrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",user)
       if(response){
-      setDataa(response.data)
-      console.log("dataaaaaaa",response.data)
-      // setIsloading(false)
-      // }
-    }
+        setDataa(response.data)
+        console.log("dataaaaaaa",response.data)
+        // setIsloading(false)
+        // }
+      }
     } catch (error) {
       console.log(error.message)
     }
@@ -168,11 +172,26 @@ console.log("you have to registe")    }
     //     // setTempImg(story.images[index])
     //     setModel(true)
     // }
+    const handleWindowResize = () => {
+      setIsResponsive(window.innerWidth <= 970);
+    };
+  
+ // Function to toggle description expansion
+ const [isResponsive, setIsResponsive] = useState(window.innerWidth <= 970);
+ const [expandedDescriptions, setExpandedDescriptions] = useState({});
+ const toggleDescriptionExpansion = (reviewId) => {
+  setExpandedDescriptions((prevState) => ({
+    ...prevState,
+    [reviewId]: !prevState[reviewId], // Toggle the value for the review ID
+  }));
+};
 
   return (
     <div className={Styles.container}>
       {checkUser ? (<div>loading...</div>) :(
     <>   
+    {  console.log("ssssssssssssssssssssss",user)
+}
     <section className={`${model ? Styles.modelOpen : Styles.modelClose} ${Styles.model}`}>
                 <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.showIMg} />
                 <CloseIcon  sx={{color:"white"}} onClick={() => setModel(false)} className={Styles.closeModel}/> 
@@ -195,10 +214,33 @@ console.log("you have to registe")    }
            <p className={Styles.name}>{workerData.name}</p>
         <p className={Styles.email}>{workerData.email}</p>
         <div className={Styles.info}>
+          {/* <div className={Styles.info1}>  */}
             <p className={Styles.location}><LocationOnIcon /> {workerData.location}</p>
             <p className={Styles.location}><CalendarMonthIcon />- Joined April 2022</p>
-            <p className={Styles.location}> <GradeIcon sx={{color:"gold"}} /> {workerData.averageRate} ({workerData.number})</p>
+            {console.log(workerData)}
+
+<div className={Styles.inofR}>         <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center'
+        }}
+      >
+        
+        <Rating
+          name="simple-controlled"
+          value={value}
+          onChange={handleChange}
+          max={5}
+          precision={1}
+        />
+        <span>{value}</span>
+      </Box>
+     
+              <p className={Styles.location}> <GradeIcon sx={{color:"gold"}} /> {workerData.rate} ({workerData.number})</p>
+              </div> 
         </div>
+
        </div>
         )
 }
@@ -216,8 +258,27 @@ console.log("you have to registe")    }
             
           <p className={Styles.location}>{item.location}<LocationOnIcon /></p>
 
-            <p className={Styles.desc}>{item.description} </p>
-           {/* {mine&&(<MoreVertIcon className={Styles.dots} onClick={()=> deletePost(item._id)} /> )}  */}
+            {/* <p className={Styles.desc}>{item.description} </p> */}
+            <div className={Styles.desc}>
+                    {isResponsive
+                      ? expandedDescriptions[item._id]
+                        ? item.description
+                        : item.description.slice(0, 40)
+                      : expandedDescriptions[item._id]
+                      ? item.description
+                      : item.description.slice(0, 100)}
+                    {item.description.length > (isResponsive ? 40 : 100) && (
+                      <span
+                        className={Styles.viewMore}
+                        onClick={() => toggleDescriptionExpansion(item._id)}
+                      >
+                        {expandedDescriptions[item._id]
+                          ? " View Less"
+                          : "... View More"}
+                      </span>
+                    )}
+                  </div>
+           {/* {mine&&(<MoreVertIcon className={Styless.dots} onClick={()=> deletePost(item._id)} /> )}  */}
            {mine&&( <div className={Styles.editDelete}>
             <DeleteIcon style={{color:"red", cursor:"pointer"}} onClick={()=>deletePost(item._id)} />
             <EditIcon style={{cursor:"pointer "}} />
@@ -251,7 +312,7 @@ console.log("you have to registe")    }
             </div>    
             </div>
             <div className={Styles.rating}>
-        <Box
+        {/* <Box
         sx={{
           display: 'flex',
           flexDirection: 'row',
@@ -266,7 +327,7 @@ console.log("you have to registe")    }
           precision={1}
         />
         <span>{value}</span>
-      </Box>
+      </Box> */}
       </div>
       <div className={Styles.reviews}>
         <p className={Styles.rev}>Reviews ^^</p>

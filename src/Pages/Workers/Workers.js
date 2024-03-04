@@ -21,7 +21,7 @@ const Workers = () => {
   const [categories, setCategories] = useState([])
 
   const [search, setSearch] = useState('')
-
+  
   const handleSearch = (query)=>{
     setSearch(query)
   }
