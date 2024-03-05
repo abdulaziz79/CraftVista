@@ -2,8 +2,9 @@ import React, { useState, useEffect,useContext } from 'react';
 import Styles from "./AddPost.module.css";
 import axios from 'axios';
  import {UserContext} from "../../../UserContext/UserContext"
-const Addpost = ({setAddPost , fetchData}) => {
+const Addpost = ({setAddPost }) => {
   const { user } = useContext(UserContext); 
+  // console.log("ggggggggggggggggggggggggggg",fetchFilter())
 console.log("sssssssssssssssssssssssssssssssssssss",user)
   const [formData, setFormData] = useState({
     description: '',
@@ -65,7 +66,7 @@ console.log("addddddddddddddddddddddddd")
           categoryId: ''
         });
         onclose()
-        fetchData()
+        // fetchFilter()
     }
     } catch (error) {
       console.log(error.message)

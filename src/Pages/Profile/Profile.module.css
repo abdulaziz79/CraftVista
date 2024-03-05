@@ -356,7 +356,7 @@
     border-radius: 50%;
     z-index: 2;
     bottom: -14%;
-    left: 50%;
+    left: 22%;
     transform: translate(-50%);
     border: 3px solid white;
 }
@@ -364,12 +364,21 @@
     width: 100%;
 }
 .userInfo{
-    text-align: center;
+    text-align: left;
+    /* margin-left: 1rem; */
+}
+.name{
+    margin-left: 2rem;
+}
+.email{
+    margin-left: 2rem;
 }
 .info{
     display: flex;
     flex-direction: column;
-    align-content: center;}
+    align-content: flex-start;
+    margin-left: 1rem;
+}
 .post{
     width: 100%;
     border-radius: 0;
@@ -384,6 +393,9 @@
 }
 .location{
     margin-left: 0.5rem;
+}
+.btnAdd{
+    right: 10%;
 }
 }
 @media screen and (max-width:555px) {

@@ -35,7 +35,7 @@ const Workers = () => {
       try {
         const response = await axios.get(`${process.env.REACT_APP_PATH}/category/read`)
         if(response){
-          console.log(response.data)
+          // console.log(response.data)
           setCategories(response.data)
         }
       } catch (error) {
@@ -52,7 +52,7 @@ const Workers = () => {
         if (response) {
           setData(response.data);
           setAllData(response.data)
-          console.log(response.data)
+          // console.log(response.data)
         }
       } catch (error) {
         console.log(error.message);

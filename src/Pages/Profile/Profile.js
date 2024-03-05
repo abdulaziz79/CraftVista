@@ -36,7 +36,7 @@ const Profile = () => {
   })
   const [reviews, setReviews] = useState([]);
   // console.log(user.user)
-  console.log(workerData)
+  // console.log(workerData)
 
   const handleChange = (event, newValue) => {
     if(user && user.role !== "admin"){
@@ -54,15 +54,15 @@ console.log("you have to registe")    }
 
   useEffect(()=>{
     const worker=location.state && location.state
-    console.log("workerrrrrr",worker)
+    // console.log("workerrrrrr",worker)
   
     // console.log(user)
     // if(user && (worker===null || user.userId===worker?._id)){
     if(location.pathname=== "/myprofile"){
 
-      console.log("minnnnnnnnnnnnnnnnneeeeeeeee")
+      // console.log("minnnnnnnnnnnnnnnnneeeeeeeee")
       setMine(true)
-      console.log("userrrrrrrrrrrrrrrrrrrrr",user.userId)
+      // console.log("userrrrrrrrrrrrrrrrrrrrr",user.userId)
       setWorkerData(user)
     }
     else{
@@ -75,7 +75,7 @@ console.log("you have to registe")    }
       try {
         const id=location.state? location.state._id:user.userId
       const res = await axios.get(`${process.env.REACT_APP_PATH}/user/read/${id}`)
-      console.log(res.data)
+      // console.log(res.data)
         
       } catch (error) {
         console.log(error.message)
@@ -95,7 +95,7 @@ console.log("you have to registe")    }
     const rateData={...formData,'value':value}
     try {
       const response = await axios.post(`${process.env.REACT_APP_PATH}/rate/create`,rateData)
-        console.log("responsssssssssse", response.data)
+        // console.log("responsssssssssse", response.data)
         // setWorkerData(response.data.updatedUserData); 
         fetchData()
         setUpdated(response.data)
@@ -105,11 +105,11 @@ console.log("you have to registe")    }
   }
 
   const deletePost = async (id)=>{
-    console.log(id)
+    // console.log(id)
     try {
       const response= await axios.delete(`${process.env.REACT_APP_PATH}/post/delete/${id}`)
       if(response){
-        console.log(response.data)
+        // console.log(response.data)
         fetchData()
         handleClose()
       }
@@ -130,10 +130,10 @@ console.log("you have to registe")    }
       // if (workerData && workerData._id){
       const response = await axios.get(`${process.env.REACT_APP_PATH}/post/readPosts/${id}`)
       
-      console.log("userrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",user)
+      // console.log("userrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",user)
       if(response){
         setDataa(response.data)
-        console.log("dataaaaaaa",response.data)
+        // console.log("dataaaaaaa",response.data)
         // setIsloading(false)
         // }
       }
@@ -182,7 +182,7 @@ console.log("you have to registe")    }
  const toggleDescriptionExpansion = (reviewId) => {
   setExpandedDescriptions((prevState) => ({
     ...prevState,
-    [reviewId]: !prevState[reviewId], // Toggle the value for the review ID
+    [reviewId]: !prevState[reviewId], 
   }));
 };
 
@@ -190,8 +190,8 @@ console.log("you have to registe")    }
     <div className={Styles.container}>
       {checkUser ? (<div>loading...</div>) :(
     <>   
-    {  console.log("ssssssssssssssssssssss",user)
-}
+    {/* {  console.log("ssssssssssssssssssssss",user)
+} */}
     <section className={`${model ? Styles.modelOpen : Styles.modelClose} ${Styles.model}`}>
                 <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.showIMg} />
                 <CloseIcon  sx={{color:"white"}} onClick={() => setModel(false)} className={Styles.closeModel}/> 
@@ -217,7 +217,7 @@ console.log("you have to registe")    }
           {/* <div className={Styles.info1}>  */}
             <p className={Styles.location}><LocationOnIcon /> {workerData.location}</p>
             <p className={Styles.location}><CalendarMonthIcon />- Joined April 2022</p>
-            {console.log(workerData)}
+            {/* {console.log(workerData)} */}
 
 <div className={Styles.inofR}>         <Box
         sx={{

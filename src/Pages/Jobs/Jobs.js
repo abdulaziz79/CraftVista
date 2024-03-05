@@ -103,7 +103,7 @@ import imagee from "../../assets/images/post.jpg"
 
 
 const Jobs = () => {
-  console.log(process.env.REACT_APP_PATH)
+  // console.log(process.env.REACT_APP_PATH)
   const [selected, setSelected] = useState("All")
   const [posts, setPosts] = useState([]);
   const {user} = useContext(UserContext)
@@ -269,7 +269,7 @@ fetchFilter()
         {user && user.role ==="user" && (<button className={Styles.btnAdd}  onClick={()=>setAddPost(prev => !prev)}>Add new post</button>)}
         </div>
         <div className={Styles.bottom}>
-        {console.log(posts)}
+        {/* {console.log(posts)} */}
           {posts && posts.map((post, index) => (
             // index < visiblePosts && (
               // console.log(post.userId.name)
@@ -299,7 +299,7 @@ fetchFilter()
           ))}
           {loading && <p>Loading...</p>}
         </div>
-        {addPost &&  <div className={Styles.formm}><Addpost  setAddPost={setAddPost}/></div>}
+        {addPost &&  <div className={Styles.formm}><Addpost   setAddPost={setAddPost}/></div>}
 
       </div>
     </>

@@ -23,7 +23,7 @@ const Masonryy = ({ data }) => {
     <Masonry  columnClassName={Styles.column} className={Styles.masonry} breakpointCols={breakPointObj}>
       { data && data.map((item, index) => (
         <Link to={`/profile/${item.name}`} state={item} key={index}>
-          {console.log(data)}
+          {/* {console.log(data)} */}
         <div className={Styles.cart} >
           <div className={Styles.itemContainer}>
             <p className={Styles.rate}><GradeIcon sx={{color:"gold"}} />{item.rate} ({item.number})</p>

@@ -23,6 +23,7 @@ export default function DashPosts() {
         if(response){
             setRows(response.data);
             setLoading(false)
+            console.log(response.data)
         }
         // console.log(response.data)
         
@@ -61,9 +62,12 @@ export default function DashPosts() {
     setIsAddFormOpen(false);
   };
   const columns = [
-    { field: "_id", headerName: "ID", flex: 1 },
+    // { field: "_id", headerName: "ID", flex: 1 },
     { field: "userId", headerName: "Email", flex: 1 ,  renderCell: (params) => (
         <span>{params.row.userId && params.row.userId.email}</span>
+      ),},
+      { field: "role", headerName: "Role", flex: 1 ,  renderCell: (params) => (
+        <span>{params.row.userId && params.row.userId.role}</span>
       ),},
     { 
         field: "description", 

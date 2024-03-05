@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import './Footer.module.css';
 import style from './Footer.module.css'
+import SvgComponent from "../../Components/SvgComponent";
 // import logo from '../../assets/icons/tiktok.svg'
 // import facebook from '../../assets/icons/facebook.svg'
 // import instagram from '../../assets/icons/instagram.svg'
@@ -16,6 +17,7 @@ const Footer = () => {
             <div className={style.logoDescription}>
                 <Link to="/">
                     {/* <img src={logo} alt="Global Fairy logo" /> */}
+                    <SvgComponent />
                 </Link>
                 <p>Discover nature's wonders with curated trails, expert guidance, and a vibrant community on our premier hiking platform.</p>
             </div>
