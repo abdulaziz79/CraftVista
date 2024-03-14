@@ -81,7 +81,7 @@ const Signup = () => {
       const response = await axios.post(`${process.env.REACT_APP_PATH}/user/register`, {...formData, image: formData.image},{headers: {'Content-Type': 'multipart/form-data'}});
       if(response){
         setUser(response.data)
-        console.log(response.error);
+        // console.log(response.error);
         fetchUserData()
         
 

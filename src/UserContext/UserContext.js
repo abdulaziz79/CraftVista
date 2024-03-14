@@ -14,22 +14,26 @@ export const UserProvider = ({children})=>{
           }
     },[user, userUpdated])
 
-    const fetchUserData= async () => {
+    const fetchUserData = async () => {
         try {
-            setCheckUser(true)
-            const response = await axios.get(`${process.env.REACT_APP_PATH}/logged-in-user`,
-            {withCredentials:true}
-            )
-            setUser(response.data.user)
-            setUserUpdated(false)
+          setCheckUser(true);
+          const response = await axios.get(
+            `${process.env.REACT_APP_PATH}/logged-in-user`,
+            { withCredentials: true }
+          );
+          setUser(response.data.user);
+          setUserUpdated(false);
         } catch (error) {
-            setUser(null);
-            console.log(error);
+          if (error.response && error.response.status === 401) {
+            setUser(null); 
+          } else {
+            console.log(error); 
+          }
+        } finally {
+          setCheckUser(false);
         }
-        finally{
-            setCheckUser(false)
-        }
-    }
+      };
+      
 
     return (
         <UserContext.Provider value={{user, setUser,fetchUserData, checkUser}}>

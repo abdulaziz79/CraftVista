@@ -70,7 +70,7 @@ console.log("you have to registe")    }
       setFormData(prev => ({ ...prev,"rated":worker && worker._id,'rater':user&&user._id}));
 
     }
-    console.log(location.state)
+    // console.log(location.state)
     const fetchUser = async () => {
       try {
         const id=location.state? location.state._id:user.userId
@@ -127,7 +127,7 @@ console.log("you have to registe")    }
       else{
         id=workerData._id
       }
-      // if (workerData && workerData._id){
+      if (workerData && workerData._id){
       const response = await axios.get(`${process.env.REACT_APP_PATH}/post/readPosts/${id}`)
       
       // console.log("userrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",user)
@@ -135,7 +135,7 @@ console.log("you have to registe")    }
         setDataa(response.data)
         // console.log("dataaaaaaa",response.data)
         // setIsloading(false)
-        // }
+        }
       }
     } catch (error) {
       console.log(error.message)

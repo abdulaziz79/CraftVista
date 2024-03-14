@@ -160,6 +160,7 @@
   @media screen and (max-width:490px) {
     .container{
         padding-top: 2rem;
+        height: 85vh;
     }
   
     .number{
@@ -175,10 +176,10 @@
         line-height: 40px;
     }
     .slidingText{
-        position: absolute;
+        /* position: absolute;
         font-size: 18vh;
         bottom: -10rem;
-        /* overflow-x: scroll; */
-        color: #3b3b3d29;
+        color: #3b3b3d29; */
+        display: none;
     }
   }

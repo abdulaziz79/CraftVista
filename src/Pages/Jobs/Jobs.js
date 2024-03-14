@@ -107,7 +107,7 @@ const Jobs = () => {
   const [selected, setSelected] = useState("All")
   const [posts, setPosts] = useState([]);
   const {user} = useContext(UserContext)
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [scrolled, setScrolled] = useState(false); 
   const [visiblePosts, setVisiblePosts] = useState(0); 
@@ -132,7 +132,7 @@ fetchFilter()
 },[filters])
 
   const fetchInitialPosts = async () => {
-    setLoading(true);
+    // setLoading(true);
     setTimeout(async() => {
       try {
         const response =await axios.get(`${process.env.REACT_APP_PATH}/post/readUserPosts`)
@@ -174,8 +174,10 @@ fetchFilter()
       if(response){
         setPosts(response.data)
         console.log("ssssssssssssssssssssssssssssss",response.data[0].user[0].name)
+        setLoading(false)
       }
     } catch (error) {
+      console.log(error.message)
       
     }
   }

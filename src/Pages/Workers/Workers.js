@@ -43,24 +43,24 @@ const Workers = () => {
       }
     }
 
-  const fetchData = async () => {
-    setLoading(true);
+    const fetchData = async () => {
+      setLoading(true);
+      
   
-    setTimeout(async () => {
-      try {
-        const response = await axios.get(`${process.env.REACT_APP_PATH}/user/read/allWithrates`);
-        if (response) {
-          setData(response.data);
-          setAllData(response.data)
-          // console.log(response.data)
+        try {
+          const response = await axios.get(`${process.env.REACT_APP_PATH}/user/read/allWithrates`);
+          if (response) {
+            setData(response.data);
+            setAllData(response.data);
+            // if (loading) return <Spinner message="You are about to find the workers" />;
+          }
+        } catch (error) {
+          console.log(error.message);
+        } finally {
+          setLoading(false); 
         }
-      } catch (error) {
-        console.log(error.message);
-      } finally {
-        setLoading(false); 
-      }
-    }, 1000); 
-  };
+
+    };
 
   const sortDataByRate = () => {
     const sortedData = [...data].sort((a, b) => b.rate - a.rate); 
