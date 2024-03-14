@@ -33,7 +33,10 @@ const SectionCategory = () => {
 
   return (
     <div className={Styles.container}>
-    <h1 className={Styles.title}>CHECK OUR <br />MOST RATED WORKERS</h1>
+      <div className={Styles.div}>
+      <p className={Styles.smallText}>Discover</p>
+    <h1 className={Styles.title}>Check Our<br />Most Rated Workers</h1>
+    </div>
     <div className={Styles.cards}>
       {data.map((worker,index) => (
       // <Link to={`/profile/${worker.name}`} state={worker}>

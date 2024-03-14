@@ -16,17 +16,24 @@
     height: 100vh;
     /* scroll-snap-align: center; */
     width: 100%;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
   }
   
   .categories{
     /* scroll-snap-align: center; */
     height: 100%;
-    background-color: rgb(9, 2, 17);
+    /* background-color: rgb(9, 2, 17); */
 
   }
   .category{
     height: 100%;
     /* scroll-snap-align:start; */
     background-color: rgb(255, 255, 255);
+  }
+
+  @media screen and (max-width:490px) {
+    .about{
+        padding-top: 2rem;
+        height: 85vh;
+    }
   }
