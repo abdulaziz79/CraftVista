@@ -27,6 +27,13 @@
     padding: 30px 15px;
     gap: 30px;
   }
+  .span{
+  font-weight: bold;
+  font-size: 20px;
+  /* margin-left: 6rem; */
+  color: white;
+  margin-bottom: 2rem;
+  }
   
   .logoDescription {
     text-align: center;
@@ -36,6 +43,7 @@
     align-items: center;
     position: relative;
     z-index: 20;
+    gap: 1rem;
   }
   .logoDescription img {
     width: 150px;
@@ -83,7 +91,7 @@
     height: 188px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
   }
   .social .title {
     margin-bottom: 25px;

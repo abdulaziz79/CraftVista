@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import './Footer.module.css';
 import style from './Footer.module.css'
+import { UserContext } from "../../UserContext/UserContext";
+import { useContext } from "react";
 import SvgComponent from "../../Components/SvgComponent";
 // import logo from '../../assets/icons/tiktok.svg'
 // import facebook from '../../assets/icons/facebook.svg'
@@ -10,6 +12,8 @@ import SvgComponent from "../../Components/SvgComponent";
 // import tiktok from '../../assets/icons/tiktok.svg'
 // import subscribeIcon from '../../assets/icons/send.png'
 const Footer = () => {
+    const {user,} = useContext(UserContext)
+
     return(
     <footer className={style.footer}>
         <div className={style.heroBackgrd}></div>
@@ -17,14 +21,14 @@ const Footer = () => {
             <div className={style.logoDescription}>
                 <Link to="/">
                     {/* <img src={logo} alt="Global Fairy logo" /> */}
-                    <SvgComponent />
+                    <Link to="/"><span className={style.span} >CraftVista</span></Link> 
+                    {/* <SvgComponent /> */}
                 </Link>
-                <p>Discover nature's wonders with curated trails, expert guidance, and a vibrant community on our premier hiking platform.</p>
-            </div>
+                <p>Unlock the potential of your projects with curated expertise, seamless solutions, and a supportive community on our premier work platform.</p>            </div>
             <div className={style.contact}>
                 <h3 className={style.title}>Support</h3>
                 <ul className={style.links}>
-                    <li>craftVista@lebanon.com</li>
+                    <li>aboudecharkawi.com</li>
                     <li>79165588</li>
                     <li><Link to="/contact">Contact</Link></li>
                 </ul>
@@ -33,8 +37,8 @@ const Footer = () => {
                 <h3 className={style.title}>Account</h3>
                 <ul className={style.links}>
                     <li><Link to="/">my Account</Link></li>
-                    <li><Link to="/about">Login/Signup</Link></li>
-                    <li><Link to="Products/Category">Profile</Link></li>
+                    <li><Link to="/signup">Login/Signup</Link></li>
+                    <li><Link to={user && "/myprofile"}>Profile</Link></li>
                 </ul>
             </div>
           
@@ -42,7 +46,7 @@ const Footer = () => {
                 <h3 className={style.title}>Quick Links</h3>
                 <ul className={style.links}>
                     <li>Events</li>
-                    <li>About us</li>
+                    <li><Link to="/about">About us</Link></li>
                     <li>Stories</li>
                 </ul>
             </div>
