@@ -41,7 +41,7 @@ const slider = {
 const SectionCategory = () => {
   return (
     <div className={Styles.container}>
-      <motion.div className={Styles.top} variants={variants} initial="initial" whileInView="animate">
+      <motion.div className={Styles.top} variants={variants} initial="initial" animate="animate">
         <motion.div className={Styles.left} variants={variants} >
          <motion.div className={Styles.leftleft} variants={variants} >
           <motion.div> <p className={Styles.number}><CountUp start={0} end={500} duration={2} />+</p> <p className={Styles.word}>Happy client</p> </motion.div>

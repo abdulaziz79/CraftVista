@@ -47,6 +47,7 @@
     position: relative;
     /* background-color: aqua; */
     border-radius: 10px;
+    height: fit-content;
 }
 .cards::before{
     content: "";
@@ -89,6 +90,7 @@
     font-size: 20px;
     /* text-align: center; */
     width: 100%;
+    
 
 }
 .div{
@@ -159,8 +161,9 @@
     /* transition: 0.7s; */
 }
 .card:hover {
-    scale: 1.07;
-    z-index: 999;
+    /* scale: 1.01;
+    z-index: 999; */
+    box-shadow: none;
     /* box-shadow: 0 0 20px rgb(255, 255, 255); */
 
 }
@@ -190,8 +193,10 @@
     }
 
 }
-@media screen and (max-width:722px) {
- 
+@media screen and (max-width:522px) {
+    .div{
+        margin: 0;
+    }
 
 }
 @media screen and (max-width:850px) {
