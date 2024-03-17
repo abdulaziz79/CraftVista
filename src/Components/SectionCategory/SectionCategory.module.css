@@ -90,6 +90,7 @@
     font-size: 20px;
     /* text-align: center; */
     width: 100%;
+    padding-left: 6px;
     
 
 }
@@ -196,6 +197,9 @@
 @media screen and (max-width:522px) {
     .div{
         margin: 0;
+    }
+    .card{
+        height: fit-content;
     }
 
 }
