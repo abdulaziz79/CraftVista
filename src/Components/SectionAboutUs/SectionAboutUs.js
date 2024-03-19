@@ -62,8 +62,8 @@ const SectionCategory = () => {
         </div>
       </motion.div>
       <div className={Styles.bottom}>
-         <motion.div className={Styles.slidingText} variants={slider} initial="initial" animate="animate">
-         We link users to skilled handymen and job opportunities, enhancing their home maintenance experience      </motion.div>
+         {/* <motion.div className={Styles.slidingText} variants={slider} initial="initial" animate="animate">
+         We link users to skilled handymen and job opportunities, enhancing their home maintenance experience      </motion.div> */}
       
 
       </div>
