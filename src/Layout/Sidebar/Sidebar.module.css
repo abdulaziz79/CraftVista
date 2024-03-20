@@ -43,7 +43,10 @@
     justify-content: center;
     gap:20px
 }
-
+.activeLink{
+    /* background-color: black; */
+    border-bottom: 3px solid orange;
+}
 @media screen and (max-width:550px) {
  .btn{
     right: 11px;

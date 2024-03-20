@@ -45,9 +45,10 @@
 @media screen and (max-width:550px) {
     .span{
         margin: 0;
+        margin-left: 1rem;
     }
     .log{
-        margin-right: 4.3rem;
+        margin-right: 4.9rem;
     }
     .spann{
         display: none;
