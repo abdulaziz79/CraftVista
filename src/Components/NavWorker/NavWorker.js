@@ -9,7 +9,7 @@ const NavWorker = ({sortDataByRate, fetchData, handleSearch,categories,setData,d
         // setData(allData)
         setActiveBtn(btnName&&btnName)
         const myData=allData
-        console.log(e.target.value)
+        // console.log(e.target.value)
         // console.log(data)
         try {
           const filteredData = myData.filter(worker =>
