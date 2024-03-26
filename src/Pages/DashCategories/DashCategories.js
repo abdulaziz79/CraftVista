@@ -20,7 +20,7 @@ export default function DashCategories() {
     try {
       const response = await axios.get(`${process.env.REACT_APP_PATH}/category/read`)
       if(response){
-        console.log(response.data)
+        // console.log(response.data)
         setRows(response.data)
         
       }

@@ -4,7 +4,7 @@ import axios from 'axios';
  import {UserContext} from "../../../UserContext/UserContext"
 const Addpost = ({setAddPost , fetchData}) => {
   const { user } = useContext(UserContext); // Assuming your context provides userId
-  console.log("ssssssssssssssssssssssssss",user)
+  // console.log("ssssssssssssssssssssssssss",user)
 
   const [formData, setFormData] = useState({
     description: '',
@@ -14,7 +14,7 @@ const Addpost = ({setAddPost , fetchData}) => {
     categoryId: ''
   });
   const[categories, setCategories]= useState([])
-  console.log(user)
+  // console.log(user)
 ////////////////////////////////////////////
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const Addpost = ({setAddPost , fetchData}) => {
     }));
 };
 
-console.log("addddddddddddddddddddddddd")
+// console.log("addddddddddddddddddddddddd")
   /////////////////////////////////////////////////
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -50,7 +50,7 @@ const Login = () => {
       formData,
       {withCredentials:true}
       );
-      console.log(response)
+      // console.log(response)
       if (response) {
     await fetchUserData();
     console.log("login successful");

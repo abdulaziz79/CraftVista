@@ -35,7 +35,7 @@ const Signup = () => {
     });
   };
   const handleImageChange = (e)=>{
-    console.log(e.target.files[0])
+    // console.log(e.target.files[0])
     setFormData((prev)=>({
       ...prev,
       image:e.target.files[0]
@@ -76,7 +76,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData)
+    // console.log(formData)
     try {
       const response = await axios.post(`${process.env.REACT_APP_PATH}/user/register`, {...formData, image: formData.image},{headers: {'Content-Type': 'multipart/form-data'}});
       if(response){

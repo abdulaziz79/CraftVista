@@ -23,7 +23,7 @@ export default function DashWorkers() {
       const response = await axios.get(`${process.env.REACT_APP_PATH}/user/read/allWithrates`);
       if (response) {
       setRows(response.data)
-      console.log(response.data)
+      // console.log(response.data)
       setLoading(false)
       
       }

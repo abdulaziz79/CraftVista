@@ -124,7 +124,7 @@ const handleChange = (e) => {
     [e.target.name]: e.target.value
   }))
 
-  console.log(filters)
+  // console.log(filters)
 }
 
 useEffect(()=>{
@@ -159,7 +159,7 @@ fetchFilter()
     try {
       const response = await axios.get(`${process.env.REACT_APP_PATH}/category/read`)
       if(response){
-        console.log(response.data)
+        // console.log(response.data)
         setCategories(response.data)
       }
     } catch (error) {
@@ -173,7 +173,7 @@ fetchFilter()
       })
       if(response){
         setPosts(response.data)
-        console.log("ssssssssssssssssssssssssssssss",response.data[0].user[0].name)
+        // console.log("ssssssssssssssssssssssssssssss",response.data[0].user[0].name)
         setLoading(false)
       }
     } catch (error) {

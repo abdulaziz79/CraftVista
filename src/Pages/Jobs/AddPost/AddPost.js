@@ -5,7 +5,7 @@ import axios from 'axios';
 const Addpost = ({setAddPost }) => {
   const { user } = useContext(UserContext); 
   // console.log("ggggggggggggggggggggggggggg",fetchFilter())
-console.log("sssssssssssssssssssssssssssssssssssss",user)
+// console.log("sssssssssssssssssssssssssssssssssssss",user)
   const [formData, setFormData] = useState({
     description: '',
     image: '',
@@ -14,7 +14,7 @@ console.log("sssssssssssssssssssssssssssssssssssss",user)
     categoryId: ''
   });
   const[categories, setCategories]= useState([])
-  console.log(user)
+  // console.log(user)
 ////////////////////////////////////////////
 
   useEffect(() => {
@@ -41,7 +41,7 @@ console.log("sssssssssssssssssssssssssssssssssssss",user)
     }));
 };
 
-console.log("addddddddddddddddddddddddd")
+// console.log("addddddddddddddddddddddddd")
   /////////////////////////////////////////////////
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,7 +54,7 @@ console.log("addddddddddddddddddddddddd")
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  console.log("submittt")
+  // console.log("submittt")
     try {
       const response = axios.post(`${process.env.REACT_APP_PATH}/post/create`,formData, {headers:{"Content-Type":"multipart/form-data"}})
       if(response){

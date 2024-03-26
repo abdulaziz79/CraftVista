@@ -11,8 +11,7 @@
 }
 .container {
   display: flex;
-  /* padding-left: 2rem;
-  padding-right: 2rem; */
+
   flex-direction: column;
   justify-content: center;
   margin-left: 10%;
@@ -28,21 +27,14 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: lightgray; 
 }
-  /* .inputLabel{
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  } */
   .h2 {
     font-size: 50px;
-    /* margin-bottom: 20px; */
+  
 
     font-weight: 400;
     align-items: flex-start;
     width: 91%;
-    /* letter-spacing: 6px; */
+
   }
 
   

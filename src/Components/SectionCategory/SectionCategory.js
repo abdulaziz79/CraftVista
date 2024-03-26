@@ -20,7 +20,7 @@ const SectionCategory = () => {
     const response = await axios.get(`${process.env.REACT_APP_PATH}/user/read/topRated`);
     if (response && response.data) {
       setData(response.data);
-      console.log(response.data);
+      // console.log(response.data);
     }
   } catch (error) {
     console.log(error.message);
