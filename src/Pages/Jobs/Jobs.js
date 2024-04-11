@@ -247,63 +247,61 @@ fetchFilter()
 
   return (
     <>
-      <div className={`${Styles.container} ${scrolled ? Styles.scrolled : ''}`}>
-        <div className={Styles.top}>
+      <main className={`${Styles.container} ${scrolled ? Styles.scrolled : ''}`}>
+        <section className={Styles.top}>
           <div className={Styles.topBottom}>
-          <button className={Styles.btn}><ListIcon sx={{marginRight:"2rem", height:"2.5rem", width:"2.5rem"}} onClick={(()=>setFilter(''))} /> All</button>
-          <select name="category" className={Styles.location} value={selectedCategory} onChange={handleChange} >
-                  <option value=""><LocationCityIcon /> Select a category</option>
-                  {categories.map(category => (
-              <option key={category._id} value={category._id}>{category.title}</option>
-            ))}
-              </select>              
-              <select name="location" className={Styles.location} value={filters.location|| ''}  onChange={handleChange}>
-                  <option value=""><LocationCityIcon /> Select a city</option>
-                  <option value="Beirut">Beirut</option>
-                  <option value="tripoli">Tripoli</option>
-                  <option value="Sidon">Sidon</option>
-                  <option value="Tyre">Tyre</option>
-                  <option value="Jounieh">Jounieh</option>
-              </select>
+            <button className={Styles.btn}><ListIcon sx={{marginRight:"2rem", height:"2.5rem", width:"2.5rem"}} onClick={(()=>setFilter(''))} /> All</button>
+            <select name="category" className={Styles.location} value={selectedCategory} onChange={handleChange} >
+              <option value=""><LocationCityIcon /> Select a category</option>
+              {categories.map(category => (
+                <option key={category._id} value={category._id}>{category.title}</option>
+              ))}
+            </select>              
+            <select name="location" className={Styles.location} value={filters.location|| ''}  onChange={handleChange}>
+              <option value=""><LocationCityIcon /> Select a city</option>
+              <option value="Beirut">Beirut</option>
+              <option value="tripoli">Tripoli</option>
+              <option value="Sidon">Sidon</option>
+              <option value="Tyre">Tyre</option>
+              <option value="Jounieh">Jounieh</option>
+            </select>
           </div>
-        </div>
-        <div className={Styles.add}>
-        {user && user.role ==="user" && (<button className={Styles.btnAdd}  onClick={()=>setAddPost(prev => !prev)}>Add new post</button>)}
-        </div>
-        <div className={Styles.bottom}>
-        {/* {console.log(posts)} */}
+        </section>
+        <section className={Styles.add}>
+          {user && user.role ==="user" && (<button className={Styles.btnAdd}  onClick={()=>setAddPost(prev => !prev)}>Add new post</button>)}
+        </section>
+        <section className={Styles.bottom}>
+          {/* {console.log(posts)} */}
           {posts && posts.map((post, index) => (
-            // index < visiblePosts && (
-              // console.log(post.userId.name)
-              <Link to ={`/profile/${post.user[0].name}`} state={post.user[0]} key={index}>
-              <div key={post.id} className={`${Styles.post} ${index >= visiblePosts - postsPerPage ? Styles.visible : ''}`}>
+            <Link to ={`/profile/${post.user[0].name}`} state={post.user[0]} key={index}>
+              <article key={post.id} className={`${Styles.post} ${index >= visiblePosts - postsPerPage ? Styles.visible : ''}`}>
                 <div className={Styles.categ}>{post.category[0].title}</div>
                 <div className={Styles.imgTime}>
-                {/* {console.log(post)} */}
-                {post.user && post.user[0].image ? (
-  <img src={`${process.env.REACT_APP_PATH}/${post.user[0].image}`} className={Styles.profileImage} alt="Profile" />
-) : (
-  <AccountCircleIcon className={Styles.defaultProfileImage} style={{ color: 'gray', height:"3rem", width:"3rem" }} />
-)}
+                  {/* {console.log(post)} */}
+                  {post.user && post.user[0].image ? (
+                    <img src={`${process.env.REACT_APP_PATH}/${post.user[0].image}`} className={Styles.profileImage} alt="Profile" />
+                  ) : (
+                    <AccountCircleIcon className={Styles.defaultProfileImage} style={{ color: 'gray', height:"3rem", width:"3rem" }} />
+                  )}
                   <div className={Styles.nametime}>
-                  <p className={Styles.name}>{post.user[0].name}</p>
+                    <p className={Styles.name}>{post.user[0].name}</p>
                     <p className={Styles.time}>{formatTimeSince(post.createdAt)}</p>
                   </div>
                 </div>
                 <p className={Styles.locationn} style={{opacity:"0.7"}}><LocationOnIcon />{post.location}</p>
                 <p className={Styles.description}>{post.description}</p>
-               {post.image ? ( <img src={`${process.env.REACT_APP_PATH}/${post.image}`} className={Styles.postImage} alt="Post"></img>)
-              :(<img src={imagee} className={Styles.postImage}></img>) 
-              } 
-              </div>
-              </Link>
-            // )
+                {post.image ? (
+                  <img src={`${process.env.REACT_APP_PATH}/${post.image}`} className={Styles.postImage} alt="Post"></img>
+                ) : (
+                  <img src={imagee} className={Styles.postImage}></img>
+                )} 
+              </article>
+            </Link>
           ))}
           {loading && <p>Loading...</p>}
-        </div>
-        {addPost &&  <div className={Styles.formm}><Addpost   setAddPost={setAddPost}/></div>}
-
-      </div>
+        </section>
+        {addPost &&  <section className={Styles.formm}><Addpost setAddPost={setAddPost}/></section>}
+      </main>
     </>
   );
 };

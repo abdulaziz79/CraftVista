@@ -77,31 +77,30 @@ const Workers = () => {
 // };
   if(loading) return <Spinner message="You are about to find the workers" />
   return (
-    
-    <div className={Styles.container}>
+    <main className={Styles.container}>
       <Sidebar />
       {/* <Category /> */}
-      <div className={Styles.bottom}>
-      <div className={Styles.left}>
-        <div className={Styles.topLeft}>
-        CHOOSE<br /> CATEGORY
-        </div>
-        <div className={Styles.bottomLeft}>
-          <img src={image} className={Styles.img} />
-        </div>
-        </div>
-      <div className={Styles.right}>
-        <div className={Styles.nav}>
-          <NavWorker fetchData={fetchData} sortDataByRate={sortDataByRate} handleSearch={handleSearch}  allData={allData&&allData} data={data.length>0&& data} categories={categories} setData={setData}/>
-        </div>
-        <div className={Styles.bottomRight}>
-      <Masonryy data={filteredData}  />
-
-        </div>
-      </div>
-      </div>
-    </div>
+      <section className={Styles.bottom}>
+        <section className={Styles.left}>
+          <div className={Styles.topLeft}>
+            CHOOSE<br /> CATEGORY
+          </div>
+          <div className={Styles.bottomLeft}>
+            <img src={image} className={Styles.img} />
+          </div>
+        </section>
+        <section className={Styles.right}>
+          <nav className={Styles.nav}>
+            <NavWorker fetchData={fetchData} sortDataByRate={sortDataByRate} handleSearch={handleSearch}  allData={allData&&allData} data={data.length>0&& data} categories={categories} setData={setData}/>
+          </nav>
+          <section className={Styles.bottomRight}>
+            <Masonryy data={filteredData}  />
+          </section>
+        </section>
+      </section>
+    </main>
   )
+  
 }
 
 export default Workers

@@ -186,185 +186,166 @@ console.log("you have to registe")    }
   }));
 };
 
-  return (
-    <div className={Styles.container}>
-      {checkUser ? (<div>loading...</div>) :(
-    <>   
-    {/* {  console.log("ssssssssssssssssssssss",user)
-} */}
-    <section className={`${model ? Styles.modelOpen : Styles.modelClose} ${Styles.model}`}>
-                <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.showIMg} />
-                <CloseIcon  sx={{color:"white"}} onClick={() => setModel(false)} className={Styles.closeModel}/> 
-                {/* <img src={<CloseIcon/>} className={Styles.closeModel} onClick={() => setModel(false)}></img> */}
-       </section>
+return (
+  <main className={Styles.container}>
+    {checkUser ? (<div>loading...</div>) :(
+      <>   
+        <section className={`${model ? Styles.modelOpen : Styles.modelClose} ${Styles.model}`}>
+          <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.showIMg} />
+          <CloseIcon  sx={{color:"white"}} onClick={() => setModel(false)} className={Styles.closeModel}/> 
+        </section>
 
-      <div className={Styles.top}>
-      
-      <div className={Styles.heroBackgrd}></div>
+        <section className={Styles.top}>
+          <div className={Styles.heroBackgrd}></div>
+          { workerData&& workerData.image ? (
+            <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.img} onClick={()=>setModel(true)}></img>
+          ) : (
+            <img src={img} className={Styles.img} alt='profile picture' />
+          )}
+          {mine&& user.role !=="admin" &&(<button onClick={()=>setAddPost(prev => !prev) } className={Styles.btnAdd}> +</button>)} 
+        </section>
 
-        { workerData&& workerData.image ?( <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.img} onClick={()=>setModel(true)}></img>)
-  : (<img src={img} className={Styles.img} alt='profile picture' />) }
-             {mine&& user.role !=="admin" &&(<button onClick={()=>setAddPost(prev => !prev) } className={Styles.btnAdd}> +</button>)} 
-
-      </div>
-      <div className={Styles.bottom}>
-        <div className={Styles.bottomLeft}>
-        { workerData !==null  && (
-          <div className={Styles.userInfo}>
-           <p className={Styles.name}>{workerData.name}</p>
-        <p className={Styles.email}>{workerData.email}</p>
-        <div className={Styles.info}>
-          {/* <div className={Styles.info1}>  */}
-            <p className={Styles.location}><LocationOnIcon /> {workerData.location}</p>
-            <p className={Styles.location}><CalendarMonthIcon />- Joined April 2022</p>
-            {/* {console.log(workerData)} */}
-
-<div className={Styles.inofR}>         <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center'
-        }}
-      >
-        
-        <Rating
-          name="simple-controlled"
-          value={value}
-          onChange={handleChange}
-          max={5}
-          precision={1}
-        />
-        <span>{value}</span>
-      </Box>
-     
-              <p className={Styles.location}> <GradeIcon sx={{color:"gold"}} /> {workerData.rate} ({workerData.number})</p>
-              </div> 
-        </div>
-
-       </div>
-        )
-}
-       
-        {dataa&& dataa.length>0 ? (dataa.map((item,index)=>(
-        <div className={Styles.post} key={index}>
-          <div className={Styles.postTop}>
-          {workerData && workerData.image ? <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.postProfile}></img> 
-          : <img src={img} className={Styles.postProfile}></img> }
-          <div className={Styles.nameLocation}>
-          <p className={Styles.namePost}>{workerData.name}</p>
-          <p className={Styles.location}>{formatTimeSince(item.createdAt)}</p>
-          </div>
-          </div>
-            
-          <p className={Styles.location}>{item.location}<LocationOnIcon /></p>
-
-            {/* <p className={Styles.desc}>{item.description} </p> */}
-            <div className={Styles.desc}>
-                    {isResponsive
-                      ? expandedDescriptions[item._id]
-                        ? item.description
-                        : item.description.slice(0, 40)
-                      : expandedDescriptions[item._id]
-                      ? item.description
-                      : item.description.slice(0, 100)}
+        <section className={Styles.bottom}>
+          <div className={Styles.bottomLeft}>
+            { workerData !==null  && (
+              <div className={Styles.userInfo}>
+                <p className={Styles.name}>{workerData.name}</p>
+                <p className={Styles.email}>{workerData.email}</p>
+                <div className={Styles.info}>
+                  <p className={Styles.location}><LocationOnIcon /> {workerData.location}</p>
+                  <p className={Styles.location}><CalendarMonthIcon />- Joined April 2022</p>
+                  <div className={Styles.inofR}>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center'
+                      }}
+                    >
+                      <Rating
+                        name="simple-controlled"
+                        value={value}
+                        onChange={handleChange}
+                        max={5}
+                        precision={1}
+                      />
+                      <span>{value}</span>
+                    </Box>
+                    <p className={Styles.location}> <GradeIcon sx={{color:"gold"}} /> {workerData.rate} ({workerData.number})</p>
+                  </div> 
+                </div>
+              </div>
+            )}
+          
+            {dataa&& dataa.length>0 ? (
+              dataa.map((item,index)=>(
+                <div className={Styles.post} key={index}>
+                  <div className={Styles.postTop}>
+                    {workerData && workerData.image ? 
+                      <img src={`${process.env.REACT_APP_PATH}/${workerData.image}`} className={Styles.postProfile}></img> 
+                    : 
+                      <img src={img} className={Styles.postProfile}></img>
+                    }
+                    <div className={Styles.nameLocation}>
+                      <p className={Styles.namePost}>{workerData.name}</p>
+                      <p className={Styles.location}>{formatTimeSince(item.createdAt)}</p>
+                    </div>
+                  </div>
+                  <p className={Styles.location}>{item.location}<LocationOnIcon /></p>
+                  <div className={Styles.desc}>
+                    {isResponsive ? (
+                      expandedDescriptions[item._id] ? 
+                        item.description : 
+                        item.description.slice(0, 40)
+                    ) : (
+                      expandedDescriptions[item._id] ? 
+                        item.description : 
+                        item.description.slice(0, 100)
+                    )}
                     {item.description.length > (isResponsive ? 40 : 100) && (
                       <span
                         className={Styles.viewMore}
                         onClick={() => toggleDescriptionExpansion(item._id)}
                       >
-                        {expandedDescriptions[item._id]
-                          ? " View Less"
-                          : "... View More"}
+                        {expandedDescriptions[item._id] ? " View Less" : "... View More"}
                       </span>
                     )}
                   </div>
-           {/* {mine&&(<MoreVertIcon className={Styless.dots} onClick={()=> deletePost(item._id)} /> )}  */}
-           {mine&&( <div className={Styles.editDelete}>
-            <DeleteIcon style={{color:"red", cursor:"pointer"}} onClick={()=>deletePost(item._id)} />
-            <EditIcon style={{cursor:"pointer "}} />
-          {/* <MoreVertIcon className={Styles.dots} onClick={handleClick} />
-          <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-            
-          >
-            <MenuItem onClick={handleClose}>Edit</MenuItem>
-            <MenuItem onClick={()=>deletePost(item._id)}>delete</MenuItem>
-          </Menu> */}
-        </div> )} 
-
-           {item.image && <img src={`${process.env.REACT_APP_PATH}/${item.image}`} className={Styles.postImage}></img>}
-            
-        </div>
-        ))):(<p className={Styles.noPost}>No Posts Yet</p>)}
-        </div>
-        <div className={Styles.bottomRight}>
-   
-          <div className={Styles.numbers}>
-            <div className={Styles.nb}>
+                  {mine&&( 
+                    <div className={Styles.editDelete}>
+                      <DeleteIcon style={{color:"red", cursor:"pointer"}} onClick={()=>deletePost(item._id)} />
+                      <EditIcon style={{cursor:"pointer "}} />
+                    </div>
+                  )} 
+                  {item.image && <img src={`${process.env.REACT_APP_PATH}/${item.image}`} className={Styles.postImage}></img>}
+                </div>
+              ))
+            ) : (
+              <p className={Styles.noPost}>No Posts Yet</p>
+            )}
+          </div>
+          <div className={Styles.bottomRight}>
+            <div className={Styles.numbers}>
+              <div className={Styles.nb}>
                 <p style={{fontSize:"38px", fontWeight:"500", opacity:"0.6", color:"blue"}}> 20</p>
                 <p style={{opacity:"0.8"}}>Posts</p>
-            </div>
-            <div className={Styles.nb}>
+              </div>
+              <div className={Styles.nb}>
                 <p style={{fontSize:"38px", fontWeight:"500", opacity:"0.6", color:"blue"}}> 2+</p>
                 <p style={{opacity:"0.8"}}>Years of experience</p>
-            </div>    
+              </div>    
             </div>
             <div className={Styles.rating}>
-        {/* <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center'
-        }}
-      >
-        <Rating
-          name="simple-controlled"
-          value={value}
-          onChange={handleChange}
-          max={5}
-          precision={1}
-        />
-        <span>{value}</span>
-      </Box> */}
-      </div>
-      <div className={Styles.reviews}>
-        <p className={Styles.rev}>Reviews ^^</p>
-        <div className={Styles.comments}>
-          <div className={Styles.singleComment}>
-            <div className={Styles.namee}>
-            <img className={Styles.commentImg} src={image}></img>
-            <p>User Name</p>
+              {/* <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center'
+              }}
+            >
+              <Rating
+                name="simple-controlled"
+                value={value}
+                onChange={handleChange}
+                max={5}
+                precision={1}
+              />
+              <span>{value}</span>
+            </Box> */}
             </div>
-            <p className={Styles.text}>here we can put the comment whateve here we can put the comment whatever here we can put the comment whateverhere we can put the comment whateverr</p>
-
-          </div>
-          <div className={Styles.singleComment}>
-            <div className={Styles.namee}>
-            <img className={Styles.commentImg} src={image}></img>
-            <p>User name</p>
+            <div className={Styles.reviews}>
+              <p className={Styles.rev}>Reviews ^^</p>
+              <div className={Styles.comments}>
+                <div className={Styles.singleComment}>
+                  <div className={Styles.namee}>
+                    <img className={Styles.commentImg} src={image}></img>
+                    <p>User Name</p>
+                  </div>
+                  <p className={Styles.text}>here we can put the comment whateve here we can put the comment whatever here we can put the comment whateverhere we can put the comment whateverr</p>
+                </div>
+                <div className={Styles.singleComment}>
+                  <div className={Styles.namee}>
+                    <img className={Styles.commentImg} src={image}></img>
+                    <p>User name</p>
+                  </div>
+                  <p className={Styles.text}> here we can put the comment whatever</p>
+                </div>
+                <div className={Styles.singleComment}>
+                  <div className={Styles.namee}>
+                    <img className={Styles.commentImg} src={image}></img>
+                    <p>User name</p>
+                  </div>
+                  <p className={Styles.text}>here we can put the comment whatever</p>
+                </div>
+              </div>
             </div>
-            <p className={Styles.text}> here we can put the comment whatever</p>
-
           </div>
-          <div className={Styles.singleComment}>
-            <div className={Styles.namee}>
-            <img className={Styles.commentImg} src={image}></img>
-            <p>User name</p>
-            </div>
-            <p className={Styles.text}>here we can put the comment whatever</p>
-
-          </div>
-        </div>
-      </div>
-        </div>
-      </div>
+        </section>
         {addPost &&  <div className={Styles.formm}><Addpost fetchData={fetchData}  setAddPost={setAddPost}/></div>}
-
-        </>)}
-    </div>
-  )
+      </>
+    )}
+  </main>
+)
 }
 
 export default Profile

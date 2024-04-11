@@ -9,24 +9,21 @@ import Category from '../../Components/Category/Category'
 
 const Home = () => {
   return (
-    <div className={Styles.container}>
+    <main className={Styles.container}>
       <section className={Styles.hero}>
-      <Hero />
+        <Hero />
       </section>
       <section className={Styles.about}>
-      <SectrionAboutUs />
+        <SectrionAboutUs />
       </section>
-      <div className={Styles.categories}>
-       
+      <section className={Styles.categories}>
         <SectionCategory />
-      </div>
+      </section>
       <section className={Styles.category}>
         <Category />
       </section>
-
-      
-    </div>
-  )
-}
+    </main>
+  );
+};
 
 export default Home
